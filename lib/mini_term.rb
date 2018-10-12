@@ -25,7 +25,7 @@ class MiniTerm
       raise "Unknown os: #{host_os.inspect}"
     end
 
-  TERM_TYPE = TERM_PLATFORM == :windows ? :windows : :ansi
+  TERM_TYPE = (TERM_PLATFORM == :windows) ? :windows : :ansi
 
   #Is Java present in the environment?
   TERM_JAVA = RUBY_PLATFORM =~ /java/

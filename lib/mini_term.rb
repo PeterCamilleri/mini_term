@@ -40,3 +40,7 @@ class MiniTerm
     TERM_TYPE == :ansi
   end
 end
+
+# Load in the appropriate code.
+require_relative 'mini_term/windows' if MiniTerm.windows?
+require_relative 'mini_term/ansi'    if MiniTerm.ansi?

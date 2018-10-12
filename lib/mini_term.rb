@@ -29,4 +29,14 @@ class MiniTerm
 
   #Is Java present in the environment?
   TERM_JAVA = RUBY_PLATFORM =~ /java/
+
+  # Is this Windows?
+  def self.windows?
+    TERM_TYPE == :windows
+  end
+
+  # Is this ANSI?
+  def self.ansi?
+    TERM_TYPE == :ansi
+  end
 end

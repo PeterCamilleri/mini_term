@@ -2,7 +2,7 @@
 
 # A simple, portable terminal interface object.
 class MiniTerm
-  VERSION = "0.0.1"
+  VERSION = "0.0.1".freeze
 
-  DESCRIPTION = "mini_term: A portable encapsulation of the console terminal."
+  DESCRIPTION = "mini_term: A portable encapsulation of the console terminal.".freeze
 end

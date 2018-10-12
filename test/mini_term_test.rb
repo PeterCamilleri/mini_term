@@ -11,8 +11,15 @@ class MiniTermTest < Minitest::Test
 
   def test_that_it_has_a_version_number
     refute_nil ::MiniTerm::VERSION
+    assert(::MiniTerm::VERSION.frozen?)
     assert(::MiniTerm::VERSION.is_a?(String))
     assert(/\A\d+\.\d+\.\d+/ =~ ::MiniTerm::VERSION)
+  end
+
+  def test_that_it_has_a_description
+    refute_nil ::MiniTerm::DESCRIPTION
+    assert(::MiniTerm::DESCRIPTION.frozen?)
+    assert(::MiniTerm::DESCRIPTION.is_a?(String))
   end
 
 end

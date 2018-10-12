@@ -22,4 +22,9 @@ class MiniTermTest < Minitest::Test
     assert(::MiniTerm::DESCRIPTION.is_a?(String))
   end
 
+  def test_that_it_senses_the_op_sys
+    assert([:windows, :cygwin, :macosx, :linux, :unix].include?(MiniTerm::TERM_PLATFORM))
+    assert([:windows, :ansi].include?(MiniTerm::TERM_TYPE))
+  end
+
 end

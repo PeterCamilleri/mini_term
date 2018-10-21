@@ -7,3 +7,11 @@ if MiniTerm.java?
 else
   require_relative 'windows/win_32_api'
 end
+
+# The class used to manipulate console i/o on a low level.
+class MiniTerm
+
+  def initialize
+  end
+
+end

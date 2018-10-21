@@ -4,8 +4,8 @@
 class MiniTerm
 
   def term_info
-  end
 
+  end
 
 end
 

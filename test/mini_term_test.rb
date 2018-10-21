@@ -31,6 +31,12 @@ class MiniTermTest < Minitest::Test
     assert(MiniTerm.windows? == !MiniTerm.ansi?)
   end
 
+  def test_character_defns
+    assert_equal("\x07", MiniTerm::BELL)
+    assert_equal("\x0A", MiniTerm::LINE_FEED)
+    assert_equal("\x0D", MiniTerm::CARRIAGE_RETURN)
+  end
+
   def test_that_it_senses_the_term_size
     assert(mini_term.term_info.is_a?(Array))
   end

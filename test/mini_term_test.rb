@@ -3,7 +3,6 @@ gem              'minitest'
 require          'minitest/autorun'
 require          'minitest_visible'
 
-
 class MiniTermTest < Minitest::Test
 
   #Track mini-test progress.
@@ -26,6 +25,10 @@ class MiniTermTest < Minitest::Test
     assert([:windows, :cygwin, :macosx, :linux, :unix].include?(MiniTerm::TERM_PLATFORM))
     assert([:windows, :ansi].include?(MiniTerm::TERM_TYPE))
     assert(MiniTerm.windows? == !MiniTerm.ansi?)
+  end
+
+  def test_that_it_senses_the_term_size
+    assert(MiniTerm.term_info.is_a?(Array))
   end
 
 end

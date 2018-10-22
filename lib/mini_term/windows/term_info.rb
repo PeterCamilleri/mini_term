@@ -1,9 +1,9 @@
 # coding: utf-8
 
 # Get size info about the console window.
-class MiniTerm
+module MiniTerm
 
-  def term_info
+  def self.term_info
 
   end
 

@@ -6,7 +6,7 @@ require_relative "mini_term/common/char_defs"
 require_relative "mini_term/version"
 
 # A simple, portable terminal interface object.
-class MiniTerm
+module MiniTerm
   host_os = RbConfig::CONFIG['host_os']
 
   #What operating platform is in effect?

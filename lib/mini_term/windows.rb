@@ -10,9 +10,12 @@ end
 require_relative 'windows/term_info'
 
 # The class used to manipulate console i/o on a low level.
-class MiniTerm
+module MiniTerm
 
-  def initialize
+  def self.open
+  end
+
+  def self.close
   end
 
 end

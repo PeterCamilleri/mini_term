@@ -1,7 +1,7 @@
 # coding: utf-8
 
 # Common control character definitions.
-class MiniTerm
+module MiniTerm
 
   BELL = "\x07"
   LINE_FEED = "\x0A"

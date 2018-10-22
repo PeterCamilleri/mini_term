@@ -2,7 +2,7 @@
 
 # Replacement support for deprecated win_32_api gem.
 # With thanks to rb-readline gem from which this code comes.
-class MiniTerm
+module MiniTerm
 
   require 'fiddle'
 

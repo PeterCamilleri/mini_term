@@ -2,10 +2,13 @@
 
 require 'io/console'
 
-# The class used to manipulate console i/o on a low level.
-class MiniTerm
+# The module used to manipulate console i/o on a low level.
+module MiniTerm
 
-  def initialize
+  def self.open
+  end
+
+  def self.close
   end
 
 end

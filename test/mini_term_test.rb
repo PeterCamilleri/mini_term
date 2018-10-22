@@ -8,9 +8,7 @@ class MiniTermTest < Minitest::Test
   #Track mini-test progress.
   include MinitestVisible
 
-  def mini_term
-    term ||= MiniTerm.new
-  end
+  MiniTerm.open
 
   def test_that_it_has_a_version_number
     refute_nil ::MiniTerm::VERSION
@@ -40,7 +38,7 @@ class MiniTermTest < Minitest::Test
   end
 
   def test_that_it_senses_the_term_size
-    assert(mini_term.term_info.is_a?(Array))
+    assert(MiniTerm.term_info.is_a?(Array))
   end
 
 end

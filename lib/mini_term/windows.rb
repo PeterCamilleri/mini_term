@@ -13,9 +13,11 @@ require_relative 'windows/term_info'
 module MiniTerm
 
   def self.open
+    @term_open = true
   end
 
   def self.close
+    @term_open = false
   end
 
 end

@@ -6,9 +6,11 @@ require 'io/console'
 module MiniTerm
 
   def self.open
+    @term_open = true
   end
 
   def self.close
+    @term_open = false
   end
 
 end

@@ -11,6 +11,11 @@ module MiniTerm
   end
 
   # Make sure that mini_term is closed on exit.
-  at_exit { MiniTerm.close if MiniTerm.term_open? }
+  at_exit do
+    if MiniTerm.term_open?
+      MiniTerm.close
+      puts "Force MiniTerm.close"
+    end
+  end
 
 end

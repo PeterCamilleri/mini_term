@@ -9,6 +9,7 @@ class MiniTermTest < Minitest::Test
   include MinitestVisible
 
   MiniTerm.open
+  at_exit { MiniTerm.close if MiniTerm.term_open? }
 
   def test_that_it_has_a_version_number
     refute_nil ::MiniTerm::VERSION

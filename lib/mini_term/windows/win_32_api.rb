@@ -2,6 +2,8 @@
 
 # Replacement support for deprecated win_32_api gem.
 # With thanks to rb-readline gem from which this code comes.
+# This is the ugliest, smelliest Ruby code I've ever seen.
+# When the gem is up and running, clean up this crap.
 module MiniTerm
 
   require 'fiddle'

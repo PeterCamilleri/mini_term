@@ -1,4 +1,4 @@
-require_relative '../lib/mini_term>>>'
+require_relative '../lib/mini_term'
 gem              'minitest'
 require          'minitest/autorun'
 require          'minitest_visible'
@@ -8,8 +8,7 @@ class MiniTermTest < Minitest::Test
   #Track mini-test progress.
   include MinitestVisible
 
-  MiniTerm.open
-  at_exit { MiniTerm.close if MiniTerm.term_open? }
+  MiniTerm.open unless MiniTerm.term_open?
 
   def test_that_it_has_a_version_number
     refute_nil ::MiniTerm::VERSION

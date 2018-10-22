@@ -7,6 +7,7 @@ else
   require_relative 'windows/win_32_api'
 end
 
+require_relative 'windows/link'
 require_relative 'windows/term_info'
 
 # The class used to manipulate console i/o on a low level.
@@ -14,9 +15,6 @@ module MiniTerm
 
   # The sleep interval waiting for a key to be pressed.
   WAIT_SLEEP = 0.02
-
-  # The magic handle number for standard out.
-  STD_OUTPUT_HANDLE = -11
 
   def self.open
     @term_open = true

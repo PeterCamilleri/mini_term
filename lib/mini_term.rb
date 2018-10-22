@@ -49,5 +49,10 @@ module MiniTerm
 end
 
 # Load in the appropriate code.
-require_relative 'mini_term/windows' if MiniTerm.windows?
-require_relative 'mini_term/ansi'    if MiniTerm.ansi?
+if MiniTerm.windows?
+  require_relative 'mini_term/windows'
+elsif MiniTerm.ansi?
+  require_relative 'mini_term/ansi'
+else
+  fail "Invalid terminal type: #{MiniTerm::TERM_TYPE.inspect}"
+end

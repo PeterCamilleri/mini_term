@@ -13,6 +13,7 @@ module MiniTerm
     get_handle_proc.call(handle_index)
   end
 
+  # Well, stdout's handle in particular.
   @_out_handle = get_handle(STD_OUTPUT_HANDLE)
 
   # MiniTerm needs to retrieve screen info.

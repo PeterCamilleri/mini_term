@@ -10,6 +10,7 @@ end
 require_relative 'windows/link'
 require_relative 'windows/term_info'
 require_relative 'windows/set_posn'
+require_relative 'windows/input'
 
 # The class used to manipulate console i/o on a low level.
 module MiniTerm

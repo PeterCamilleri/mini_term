@@ -18,4 +18,14 @@ module MiniTerm
     end
   end
 
+  # What is the terminal width in characters?
+  def self.width
+    term_info[1]
+  end
+
+  # What is the terminal height in rows?
+  def self.height
+    term_info[0]
+  end
+
 end

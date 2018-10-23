@@ -15,9 +15,6 @@ require_relative 'windows/input'
 # The class used to manipulate console i/o on a low level.
 module MiniTerm
 
-  # The sleep interval waiting for a key to be pressed.
-  WAIT_SLEEP = 0.02
-
   def self.open
     @term_open = true
   end

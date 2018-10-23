@@ -27,5 +27,13 @@ module MiniTerm
     get_screen_info_proc.call(stdout_handle, buffer)
   end
 
+  # MiniTerm needs to move the cursor about.
+  set_cursor_posn_proc = Win32API.new("kernel32",
+                                      "SetConsoleCursorPosition",
+                                      ['L','L'], 'L')
+
+  define_singleton_method(:set_cursor_posn) do |position|
+    set_cursor_posn_proc.call(stdout_handle, position)
+  end
 
 end

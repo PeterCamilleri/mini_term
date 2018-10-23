@@ -50,4 +50,7 @@ class MiniTermTest < Minitest::Test
     assert(MiniTerm.height > 0)
   end
 
+  def test_cursor_control
+     assert(MiniTerm.set_posn(column: 40))
+  end
 end

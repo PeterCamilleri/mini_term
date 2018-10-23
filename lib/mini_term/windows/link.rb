@@ -3,8 +3,8 @@
 # Link Ruby to the Windows API calls needed by MiniTerm
 module MiniTerm
 
-  # The magic handle number for standard out.
-  STDOUT_HANDLE = -11
+  # The magic number for the standard out handle.
+  STDOUT_ID = -11
 
   # MiniTerm needs to retrieve standard handles.
   get_handle_proc = Win32API.new("kernel32", "GetStdHandle", ['L'], 'L')
@@ -15,7 +15,7 @@ module MiniTerm
 
   # Well, stdout's handle in particular.
   def self.stdout_handle
-    get_handle(STDOUT_HANDLE)
+    get_handle(STDOUT_ID)
   end
 
   # MiniTerm needs to retrieve screen info.

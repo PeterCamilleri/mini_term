@@ -4,7 +4,7 @@
 module MiniTerm
 
   # The magic handle number for standard out.
-  STD_OUTPUT_HANDLE = -11
+  STDOUT_HANDLE = -11
 
   # MiniTerm needs to retrieve standard handles.
   get_handle_proc = Win32API.new("kernel32", "GetStdHandle", ['L'], 'L')
@@ -14,7 +14,9 @@ module MiniTerm
   end
 
   # Well, stdout's handle in particular.
-  @_out_handle = get_handle(STD_OUTPUT_HANDLE)
+  def self.stdout_handle
+    get_handle(STDOUT_HANDLE)
+  end
 
   # MiniTerm needs to retrieve screen info.
   get_screen_info_proc = Win32API.new("kernel32",
@@ -22,7 +24,7 @@ module MiniTerm
                                       ['L','P'], 'L')
 
   define_singleton_method(:get_screen_info) do |buffer|
-    get_screen_info_proc.call(@_out_handle, buffer)
+    get_screen_info_proc.call(stdout_handle, buffer)
   end
 
 

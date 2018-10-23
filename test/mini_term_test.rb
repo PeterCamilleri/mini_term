@@ -46,6 +46,8 @@ class MiniTermTest < Minitest::Test
     assert_equal(2, MiniTerm.term_info.length)
     assert(MiniTerm.width.is_a?(Integer))
     assert(MiniTerm.height.is_a?(Integer))
+    assert(MiniTerm.width > 0)
+    assert(MiniTerm.height > 0)
   end
 
 end

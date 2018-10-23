@@ -1,6 +1,6 @@
 # coding: utf-8
 
-# Common control character definitions.
+# Common control character definitions. (Common Code)
 module MiniTerm
 
   BELL = "\x07"

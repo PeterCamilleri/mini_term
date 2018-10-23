@@ -36,4 +36,13 @@ module MiniTerm
     set_cursor_posn_proc.call(stdout_handle, position)
   end
 
+  # MiniTerm needs to know if any keystrokes are waiting.
+  getch_proc = Win32API.new("msvcrt", "_getch", [], 'I')
+  define_singleton_method(:getch) { getch_proc.call.chr }
+
+  # MiniTerm needs to get a single character in raw mode.
+  kbhit_proc = Win32API.new("msvcrt", "_kbhit", [], 'I')
+  define_singleton_method(:kbhit) { kbhit_proc.call }
+
+
 end

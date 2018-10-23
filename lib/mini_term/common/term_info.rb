@@ -1,6 +1,6 @@
 # coding: utf-8
 
-# Common Terminal Info
+# Common Terminal Info. (Common Code)
 module MiniTerm
 
   @term_open = false

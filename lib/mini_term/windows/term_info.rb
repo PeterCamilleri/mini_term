@@ -1,6 +1,6 @@
 # coding: utf-8
 
-# Get size info about the console window.
+# Get size info about the console window. (Windows Specific Code)
 module MiniTerm
 
   # Get term_info [rows, cols]

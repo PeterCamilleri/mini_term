@@ -1,6 +1,6 @@
 # coding: utf-8
 
-# Give MiniTerm control of the cursor position.
+# Give MiniTerm control of the cursor position. (Windows Specific Code)
 module MiniTerm
 
   # Set the row (optional) and column of the cursor.

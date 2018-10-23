@@ -7,7 +7,7 @@ require_relative "mini_term/common/term_info"
 require_relative "mini_term/common/input"
 require_relative "mini_term/version"
 
-# A simple, portable terminal interface object.
+# A simple, portable terminal interface object. (Common Code)
 module MiniTerm
   host_os = RbConfig::CONFIG['host_os']
 

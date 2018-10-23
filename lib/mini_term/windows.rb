@@ -1,6 +1,6 @@
 # coding: utf-8
 
-#Get appropriate access to Windows API calls
+# Get appropriate access to Windows API calls
 if MiniTerm.java?
   require 'win32api'
 else
@@ -12,7 +12,7 @@ require_relative 'windows/term_info'
 require_relative 'windows/set_posn'
 require_relative 'windows/input'
 
-# The class used to manipulate console i/o on a low level.
+# A simple, portable terminal interface object. (Windows Specific Code)
 module MiniTerm
 
   def self.open

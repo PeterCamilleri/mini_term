@@ -2,7 +2,7 @@
 
 require 'io/console'
 
-# The module used to manipulate console i/o on a low level.
+# A simple, portable terminal interface object. (ANSI Specific Code)
 module MiniTerm
 
   def self.open

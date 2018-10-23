@@ -1,6 +1,6 @@
 # coding: utf-8
 
-# Get input from the user in raw mode.
+# Get input from the user in raw mode. (Common Code)
 module MiniTerm
 
   # Is input raw or cooked?

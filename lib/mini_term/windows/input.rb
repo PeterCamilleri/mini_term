@@ -1,6 +1,6 @@
 # coding: utf-8
 
-# Get input from the user in raw mode.
+# Get input from the user in raw mode. (Windows Specific Code)
 module MiniTerm
 
   # The sleep interval waiting for a key to be pressed.

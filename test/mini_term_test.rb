@@ -43,6 +43,7 @@ class MiniTermTest < Minitest::Test
 
   def test_that_it_senses_the_term_size
     assert(MiniTerm.term_info.is_a?(Array))
+    assert_equal(2, MiniTerm.term_info.length)
   end
 
 end

@@ -53,4 +53,8 @@ class MiniTermTest < Minitest::Test
   def test_cursor_control
      assert(MiniTerm.set_posn(column: 40))
   end
+
+  def test_making_noise
+     assert(MiniTerm.beep)
+  end
 end

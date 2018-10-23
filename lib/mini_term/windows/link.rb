@@ -44,5 +44,8 @@ module MiniTerm
   kbhit_proc = Win32API.new("msvcrt", "_kbhit", [], 'I')
   define_singleton_method(:kbhit) { kbhit_proc.call }
 
+  # MiniTerm needs to make some noise.
+  beep_proc  = Win32API.new("user32", "MessageBeep", ['L'], '0')
+  define_singleton_method(:beep) { beep_proc.call(0) }
 
 end

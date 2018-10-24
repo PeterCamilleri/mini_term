@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+#
+# Standalone execution of the games_lessons environment.
+#
+
+require_relative '../lib/mini_term'
+
+puts "Testing Raw Keyboard input. Press Q to quit."
+MiniTerm.open
+key = nil
+
+MiniTerm.raw do |i|
+  until key == "Q"
+    key = MiniTerm.get_raw_char
+    print "[" + "%02X" % key.bytes[0] + "]"
+  end
+end
+
+MiniTerm.close
+puts
+puts

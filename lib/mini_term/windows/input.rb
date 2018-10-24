@@ -16,4 +16,13 @@ module MiniTerm
     @raw_input = false
   end
 
+  #Get a uncooked character keystroke.
+  def self.get_raw_char
+    while (kbhit == 0)
+      sleep(WAIT_SLEEP)
+    end
+
+    getch
+  end
+
 end

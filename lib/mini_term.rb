@@ -4,6 +4,7 @@ require 'rbconfig'
 
 require_relative "mini_term/common/char_defs"
 require_relative "mini_term/common/term_info"
+require_relative "mini_term/common/mapper"
 require_relative "mini_term/common/raw_input"
 require_relative "mini_term/version"
 

@@ -20,6 +20,7 @@ module MiniTerm
   end
 
   def self.close
+    end_raw_input if raw?
     @term_open = false
   end
 

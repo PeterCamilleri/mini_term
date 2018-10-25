@@ -76,5 +76,15 @@ class MiniTermTest < Minitest::Test
     assert_equal([:enter, "\x0D"], MiniTerm.get_mapped_char { t_i.next } )
     assert_equal([:unmapped, "\e[z"], MiniTerm.get_mapped_char { t_i.next } )
 
+    assert_raises do
+
+      MiniTerm.add_map(:foo) do |map|
+        map["AA1"]   = :a_a_1
+        map["AA2"]   = :a_a_2
+        map["AA"]    = :a_a
+      end
+
+    end
+
   end
 end

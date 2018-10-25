@@ -5,8 +5,8 @@ module MiniTerm
 
   # Get user input uncooked, with no echo or buffering.
   def self.begin_raw_input
-    STDIN.raw!
     @raw_input = true
+    STDIN.raw!
   end
 
   # Done with raw mode for now.

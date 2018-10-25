@@ -3,7 +3,9 @@
 require 'io/console'
 
 require_relative 'ansi/term_info'
+require_relative 'ansi/set_posn'
 require_relative 'ansi/raw_input'
+require_relative 'ansi/output'
 
 # A simple, portable terminal interface object. (ANSI Specific Code)
 module MiniTerm

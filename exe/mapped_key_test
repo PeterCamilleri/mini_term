@@ -1,0 +1,76 @@
+#!/usr/bin/env ruby
+#
+# Test raw byte sequences coming from the keyboard.
+#
+
+require_relative '../lib/mini_term'
+
+exit_key = MiniTerm.windows? ? "ctrl-z" : "alt-z"
+
+puts "Testing Mapped Keyboard input. Press #{exit_key} to quit."
+MiniTerm.open
+
+MiniTerm.add_map(:windows) do |map|
+
+  map[" ".."~"] = :insert_text
+
+  #Left Arrows
+  map["\x00K"] = :go_left
+  map[MiniTerm::PREFIX+"K"] = :go_left
+
+  map["\x00s"] = :word_left
+  map[MiniTerm::PREFIX+"s"] = :word_left
+
+  #Right Arrows
+  map["\x00M"] = :go_right
+  map[MiniTerm::PREFIX+"M"] = :go_right
+
+  map["\x00t"] = :word_right
+  map[MiniTerm::PREFIX+"t"] = :word_right
+
+  #Up Arrows
+  map["\x00H"] = :previous_history
+  map[MiniTerm::PREFIX+"H"] = :previous_history
+
+  #Down Arrows
+  map["\x00P"] = :next_history
+  map[MiniTerm::PREFIX+"P"] = :next_history
+
+  #The Home keys
+  map["\x00G"] = :go_home
+  map[MiniTerm::PREFIX+"G"] = :go_home
+
+  #The End keys
+  map["\x00O"] = :go_end
+  map[MiniTerm::PREFIX+"O"] = :go_end
+
+  #The Backspace key
+  map["\x08"]  = :delete_left
+
+  #The Delete keys
+  map["\x7F"]  = :delete_right
+  map["\x00S"] = :delete_right
+  map[MiniTerm::PREFIX+"S"] = :delete_right
+
+  #Auto-completion.
+  map["\t"]    = :auto_complete
+
+  #The Enter key
+  map["\x0D"]  = :enter
+
+  #The Escape key
+  map["\x1B"]  = :cancel
+
+  #End of Input
+  map["\x1A"]  = :end_of_input
+end
+
+loop do
+  mapped = MiniTerm.get_mapped_char
+  puts mapped.inspect
+  break if mapped[0] == :end_of_input
+end
+
+MiniTerm.close
+puts
+puts

@@ -92,5 +92,17 @@ class MiniTermTest < Minitest::Test
       end
     end
 
+    MiniTerm.instance_variable_get(:@maps).clear
+
+    assert_raises do
+      MiniTerm.add_map(:foo) do |map|
+        map["AA1"]   = :a_a_1
+        map["AA2"]   = :a_a_2
+      end
+
+      t_i = "A\e[D\e[C\x0D\e[z".chars.each
+      MiniTerm.get_mapped_char { t_i.next }
+    end
+
   end
 end

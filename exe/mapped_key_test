@@ -12,37 +12,39 @@ MiniTerm.open
 
 MiniTerm.add_map(:windows) do |map|
 
+  xeo = MiniTerm::PREFIX # Make local copy for brevity.
+
   map[" ".."~"] = :insert_text
 
   #Left Arrows
   map["\x00K"] = :go_left
-  map[MiniTerm::PREFIX+"K"] = :go_left
+  map[xeo+"K"] = :go_left
 
   map["\x00s"] = :word_left
-  map[MiniTerm::PREFIX+"s"] = :word_left
+  map[xeo+"s"] = :word_left
 
   #Right Arrows
   map["\x00M"] = :go_right
-  map[MiniTerm::PREFIX+"M"] = :go_right
+  map[xeo+"M"] = :go_right
 
   map["\x00t"] = :word_right
-  map[MiniTerm::PREFIX+"t"] = :word_right
+  map[xeo+"t"] = :word_right
 
   #Up Arrows
   map["\x00H"] = :previous_history
-  map[MiniTerm::PREFIX+"H"] = :previous_history
+  map[xeo+"H"] = :previous_history
 
   #Down Arrows
   map["\x00P"] = :next_history
-  map[MiniTerm::PREFIX+"P"] = :next_history
+  map[xeo+"P"] = :next_history
 
   #The Home keys
   map["\x00G"] = :go_home
-  map[MiniTerm::PREFIX+"G"] = :go_home
+  map[xeo+"G"] = :go_home
 
   #The End keys
   map["\x00O"] = :go_end
-  map[MiniTerm::PREFIX+"O"] = :go_end
+  map[xeo+"O"] = :go_end
 
   #The Backspace key
   map["\x08"]  = :delete_left
@@ -50,7 +52,7 @@ MiniTerm.add_map(:windows) do |map|
   #The Delete keys
   map["\x7F"]  = :delete_right
   map["\x00S"] = :delete_right
-  map[MiniTerm::PREFIX+"S"] = :delete_right
+  map[xeo+"S"] = :delete_right
 
   #Auto-completion.
   map["\t"]    = :auto_complete
@@ -67,7 +69,7 @@ end
 
 loop do
   mapped = MiniTerm.get_mapped_char
-  puts mapped.inspect
+  puts "action = #{mapped[0].inspect}, text = #{mapped[1].chars.inspect}"
   break if mapped[0] == :end_of_input
 end
 

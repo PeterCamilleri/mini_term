@@ -46,6 +46,6 @@ module MiniTerm
 
   # MiniTerm needs to make some noise.
   beep_proc  = Win32API.new("user32", "MessageBeep", ['L'], '0')
-  define_singleton_method(:beep) { beep_proc.call(0) }
+  define_singleton_method(:beep) { beep_proc.call(0); self }
 
 end

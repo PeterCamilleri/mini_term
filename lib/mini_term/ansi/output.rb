@@ -13,6 +13,7 @@ module MiniTerm
   def beep
     STDERR.write(BELL)
     STDERR.flush
+    self
   end
 
 end

@@ -55,7 +55,7 @@ class MiniTermTest < Minitest::Test
   end
 
   def test_making_noise
-     assert(MiniTerm.beep)
+     assert_equal(MiniTerm, MiniTerm.beep)
   end
 
   def test_the_mapper

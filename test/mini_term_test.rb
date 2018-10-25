@@ -51,7 +51,7 @@ class MiniTermTest < Minitest::Test
   end
 
   def test_cursor_control
-     assert(MiniTerm.set_posn(column: 40))
+     assert_equal(MiniTerm, MiniTerm.set_posn(column: 40))
   end
 
   def test_making_noise

@@ -68,12 +68,13 @@ class MiniTermTest < Minitest::Test
       map["\x0D"]   = :enter
     end
 
-    t_i = "A\e[D\e[C\x0D".chars.each
+    t_i = "A\e[D\e[C\x0D\e[z".chars.each
 
     assert_equal([:insert_text, "A"], MiniTerm.get_mapped_char { t_i.next } )
     assert_equal([:go_left, "\e[D"], MiniTerm.get_mapped_char { t_i.next } )
     assert_equal([:go_right, "\e[C"], MiniTerm.get_mapped_char { t_i.next } )
     assert_equal([:enter, "\x0D"], MiniTerm.get_mapped_char { t_i.next } )
+    assert_equal([:unmapped, "\e[z"], MiniTerm.get_mapped_char { t_i.next } )
 
   end
 end

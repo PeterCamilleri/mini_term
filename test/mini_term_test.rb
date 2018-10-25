@@ -60,5 +60,20 @@ class MiniTermTest < Minitest::Test
 
   def test_the_mapper
     assert_equal(Class, MiniTerm::Mapper.class)
+
+    MiniTerm.add_map(MiniTerm::TERM_TYPE) do |map|
+      map[" ".."~"] = :insert_text
+      map["\e[D"]   = :go_left
+      map["\e[C"]   = :go_right
+      map["\x0D"]   = :enter
+    end
+
+    t_i = "A\e[D\e[C\x0D".chars.each
+
+    assert_equal([:insert_text, "A"], MiniTerm.get_mapped_char { t_i.next } )
+    assert_equal([:go_left, "\e[D"], MiniTerm.get_mapped_char { t_i.next } )
+    assert_equal([:go_right, "\e[C"], MiniTerm.get_mapped_char { t_i.next } )
+    assert_equal([:enter, "\x0D"], MiniTerm.get_mapped_char { t_i.next } )
+
   end
 end

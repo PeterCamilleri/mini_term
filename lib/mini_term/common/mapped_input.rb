@@ -16,7 +16,7 @@ module MiniTerm
     @maps[type] = Mapper.new(&defn_block)
   end
 
-  def self.get_mapped_key(&block)
+  def self.get_mapped_char(&block)
     mapper = @maps[MiniTerm::TERM_TYPE]
     proc = block_given? ? block : Proc.new { get_raw_char }
     mapper.get_mapped_char(&proc)

@@ -43,7 +43,7 @@ module MiniTerm
     end
 
     #Get a mapped input sequence.
-    def get_mapped_keystroke
+    def get_mapped_char
       key_seq, key_cmd = "", nil
 
       begin

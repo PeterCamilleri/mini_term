@@ -9,4 +9,6 @@ module MiniTerm
     self
   end
 
+  # See link.rb for the beep method.
+
 end

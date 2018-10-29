@@ -27,11 +27,12 @@ begin
       MiniTerm.set_posn(row: y, column: x)
       MiniTerm.print(" ")
     end
+
+    break if MiniTerm.kbhit != 0
   end
 
 ensure
+  MiniTerm.getch
   MiniTerm.clear_screen
   MiniTerm.close
-  puts
-  puts
 end

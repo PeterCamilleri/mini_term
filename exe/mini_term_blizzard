@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+#
+# Test raw byte sequences coming from the keyboard.
+#
+
+require_relative '../lib/mini_term'
+
+begin
+  MiniTerm.open
+  gen = Random.new
+
+  y_limit, x_limit = MiniTerm.term_info
+
+  loop do
+    x = gen.rand(x_limit)
+    y = gen.rand(y_limit)
+
+    if (x < (x_limit-1)) || (y < (y_limit-1))
+      MiniTerm.set_posn(row: y, column: x)
+      MiniTerm.print("*")
+    end
+
+    x = gen.rand(x_limit)
+    y = gen.rand(y_limit)
+
+    if (x < (x_limit-1)) || (y < (y_limit-1))
+      MiniTerm.set_posn(row: y, column: x)
+      MiniTerm.print(" ")
+    end
+  end
+
+ensure
+  MiniTerm.clear_screen
+  MiniTerm.close
+  puts
+  puts
+end

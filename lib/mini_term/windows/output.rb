@@ -11,4 +11,10 @@ module MiniTerm
 
   # See link.rb for the beep method.
 
+  # Clear the screen and home the cursor
+  def self.clear_screen
+    system("cls")
+    self
+  end
+
 end

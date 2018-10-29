@@ -9,10 +9,16 @@ module MiniTerm
     self
   end
 
-  #Sound a beep
-  def beep
+  # Sound a beep
+  def self.beep
     STDERR.write(BELL)
     STDERR.flush
+    self
+  end
+
+  # Clear the screen and home the cursor
+  def self.clear_screen
+    STDOUT.print("\e[f\e[2J")
     self
   end
 

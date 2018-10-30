@@ -19,4 +19,15 @@ module MiniTerm
     end_raw_input unless already_raw
   end
 
+  # Flush the keyboard buffer.
+  def self.flush
+    raw do |input|
+      while input.has_raw_char?
+        input.get_raw_char
+      end
+    end
+
+    self
+  end
+
 end

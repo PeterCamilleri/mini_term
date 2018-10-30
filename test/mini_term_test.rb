@@ -109,4 +109,8 @@ class MiniTermTest < Minitest::Test
   def test_putting_our_mark_on_the_screen
     assert_equal(MiniTerm, MiniTerm.print("OK"))
   end
+
+  def test_flush
+    assert_equal(MiniTerm, MiniTerm.flush)
+  end
 end

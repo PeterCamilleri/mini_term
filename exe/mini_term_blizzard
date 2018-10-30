@@ -28,7 +28,7 @@ begin
       MiniTerm.print(" ")
     end
 
-    break if MiniTerm.kbhit != 0
+    break if MiniTerm.raw(&:has_raw_char?)
   end
 
 ensure

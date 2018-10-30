@@ -16,7 +16,12 @@ module MiniTerm
     @raw_input = false
   end
 
-  #Get a uncooked character keystroke.
+  # Is there a character waiting?
+  def self.has_raw_char?
+    kbhit != 0
+  end
+
+  # Get a uncooked character keystroke.
   def self.get_raw_char
     while (kbhit == 0)
       sleep(WAIT_SLEEP)

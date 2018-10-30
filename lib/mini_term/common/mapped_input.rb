@@ -4,7 +4,9 @@
 module MiniTerm
 
   # The different keyboard maps available.
-  @maps = Hash.new {|_h, k| fail MiniTermNoMap, "No mapping for term type #{k.inspect}."}
+  @maps = Hash.new do |_h, key|
+    fail MiniTermNoMap, "No mapping for term type #{key.inspect}."
+  end
 
   # What terminal types are mapped?
   def self.map_types

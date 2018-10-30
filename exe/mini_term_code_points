@@ -3,24 +3,25 @@
 # Sample the first 65536 code points.
 #
 
+# Compute the range of code points to be displayed.
 last_code, first_code = ARGV.map(&:to_i).reverse
 first_code ||= 32
 last_code  ||= 65536
 
 puts "Code points in the range: #{first_code}...#{last_code}"
 
-first = first_code / 64
-last = (last_code + 63)/64
+# Compute the 64 element lines to be displayed.
+first_line = first_code/64
+last_line = (last_code+63)/64
 
-(first...last).each do |line|
-
+# Display the code points.
+(first_line...last_line).each do |line|
   print "%5d " % (line*64)
 
   8.times do |bundle|
     print ' '
-
-    start = line*64 + bundle * 8
-    finish = start + 8
+    start = line*64 + bundle*8
+    finish = start+8
 
     (start...finish).each do |code|
       if code.between?(first_code, last_code) && code >= 32

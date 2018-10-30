@@ -1,8 +1,16 @@
 # MiniTerm
 
-WIP
+The MiniTerm gem is a simple bit of code that seeks to smooth over the bumps
+and pot holes encountered when interacting with the console terminal to create
+console based CLI applications. This code started out buried deep within the
+MiniReadline gem where it helped that gem do its job. A while ago it was
+realized that the services provided where invaluable for a much wider range of
+development.
 
-TODO: Delete this and the text above, and describe your gem
+That's why this functionality was split out into the mini term gem contained in
+this code repository.
+
+WIP
 
 ## Installation
 

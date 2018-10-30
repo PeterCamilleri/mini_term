@@ -31,7 +31,7 @@ The mini term queue uses the following exception classes:
     Exception              # From Ruby.
       StandardError        # From Ruby.
         MiniTermError      # The abstract base exception for mini term.
-          MiniWTF          # An internal error happened. This shouldn't happen.
+          MiniTermWTF      # An internal error happened. This shouldn't happen.
           MiniTermNoMap    # No map can be found for the current terminal type.
           MiniTermKME      # A keyboard mapping error was detected.
 

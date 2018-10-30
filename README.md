@@ -26,7 +26,7 @@ WIP
 
 #### Exceptions:
 
-The mini term queue uses the following exception classes:
+The mini term gem uses the following exception classes:
 
     Exception              # From Ruby.
       StandardError        # From Ruby.

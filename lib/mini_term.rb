@@ -58,5 +58,5 @@ elsif MiniTerm.ansi?
   require_relative 'mini_term/ansi'
 else
   # This should never happen unless incorrect changes are made.
-  fail MiniTermInternal, "Invalid terminal type: #{MiniTerm::TERM_TYPE.inspect}"
+  fail MiniTermWTF, "Invalid terminal type: #{MiniTerm::TERM_TYPE.inspect}"
 end

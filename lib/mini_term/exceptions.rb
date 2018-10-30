@@ -1,10 +1,13 @@
 # coding: utf-8
 
+# The abstract base exception for mini term.
+class MiniTermError < StandardError; end
+
 # The exception raised when something is really messed up.
-class MiniTermInternal < RuntimeError; end
+class MiniTermWTF < MiniTermError; end
 
 # The exception raised when no keyboard mapping is found.
-class MiniTermNoMap < RuntimeError; end
+class MiniTermNoMap < MiniTermError; end
 
 # The exception raised when the keyboard mapping is invalid.
-class MiniTermKME < RuntimeError; end
+class MiniTermKME < MiniTermError; end

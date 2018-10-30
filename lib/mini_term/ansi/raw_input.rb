@@ -15,6 +15,11 @@ module MiniTerm
     @raw_input = false
   end
 
+  # Is there a character waiting?
+  def self.has_raw_char?
+    STDIN.ready?
+  end
+
   #Get a uncooked character keystroke.
   def self.get_raw_char
     STDIN.getch

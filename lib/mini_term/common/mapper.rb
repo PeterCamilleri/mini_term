@@ -20,7 +20,7 @@ module MiniTerm
         process_non_terminals(index)
 
         if @map.has_key?(index)
-          fail "Duplicate entry #{index.inspect}"
+          fail MiniTermKME, "Duplicate entry #{index.inspect}"
         end
 
         @map[index] = [value, index]
@@ -35,7 +35,7 @@ module MiniTerm
         seq << char
 
         if @map.has_key?(seq) && @map[seq]
-          fail "Ambiguous entry #{index.inspect}"
+          fail MiniTermKME, "Ambiguous entry #{index.inspect}"
         end
 
         @map[seq] = false

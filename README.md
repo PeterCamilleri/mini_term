@@ -24,6 +24,17 @@ Or install it yourself as:
 
 WIP
 
+#### Exceptions:
+
+The mini term queue uses the following exception classes:
+
+    Exception              # From Ruby.
+      StandardError        # From Ruby.
+        RuntimeError       # From Ruby.
+          MiniTermInternal # An internal error happened. This shouldn't happen.
+          MiniTermNoMap    # No map can be found for the current terminal type.
+          MiniTermKME      # A keyboard mapping error was detected.
+
 ## Contributing
 
 1. Fork it

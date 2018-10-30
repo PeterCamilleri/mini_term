@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+#
+# Sample the first 65536 code points.
+#
+
+(0...1024).each do |line|
+
+  print "%5d " % (line*64)
+
+  8.times do |bundle|
+    print ' '
+
+    start = line*64 + bundle * 8
+    finish = start + 8
+
+    (start...finish).each do |code|
+      if code > 31
+        begin
+          print code.chr(Encoding::UTF_8)
+        rescue RangeError
+          print 'E'
+        end
+      else
+        print ' '
+      end
+
+    end
+  end
+
+  puts
+end

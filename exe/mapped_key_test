@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 #
-# Test raw byte sequences coming from the keyboard.
+# Test mapped sequences coming from the keyboard.
 #
 
 require_relative '../lib/mini_term'

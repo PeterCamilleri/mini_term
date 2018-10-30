@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 #
-# Test raw byte sequences coming from the keyboard.
+# It's snowing!
 #
 
 require_relative '../lib/mini_term'

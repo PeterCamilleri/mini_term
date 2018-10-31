@@ -8,7 +8,7 @@ MAC OSX systems.
 
 This code started out its life buried deep within the code of the mini readline
 gem where it helped that gem do its job. A while ago it was realized that the
-services provided where invaluable for a much wider range of development. I was
+services provided were invaluable for a much wider range of development. I was
 increasingly frustrated by my need to "go-around" mini readline to get at some
 of its lower level features. When that happens it is a clear sign that a gem is
 doing too much and has too many responsibilities.

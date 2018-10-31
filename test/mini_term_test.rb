@@ -79,7 +79,6 @@ class MiniTermTest < Minitest::Test
     assert_raises do
       MiniTerm.add_map(:foo) do |map|
         map["AA1"]   = :a_a_1
-        map["AA2"]   = :a_a_2
         map["AA"]    = :a_a
       end
     end
@@ -88,7 +87,6 @@ class MiniTermTest < Minitest::Test
       MiniTerm.add_map(:foo) do |map|
         map["A"]     = :a
         map["AA1"]   = :a_a_1
-        map["AA2"]   = :a_a_2
       end
     end
 
@@ -97,7 +95,6 @@ class MiniTermTest < Minitest::Test
     assert_raises do
       MiniTerm.add_map(:foo) do |map|
         map["AA1"]   = :a_a_1
-        map["AA2"]   = :a_a_2
       end
 
       t_i = "A\e[D\e[C\x0D\e[z".chars.each

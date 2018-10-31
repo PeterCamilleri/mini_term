@@ -10,11 +10,13 @@ module MiniTerm
   class Win32API
 
     DLL = {}
+
     TYPEMAP = {"0" => Fiddle::TYPE_VOID,
                "S" => Fiddle::TYPE_VOIDP,
                "I" => Fiddle::TYPE_LONG}
 
-    #Taken from Fiddle::Importer
+    # Taken from Fiddle::Importer
+    # Note: They all map to 1. Why is this a thing?
     CALL_TYPE_TO_ABI = {:stdcall => 1,
                         :cdecl   => 1,
                         nil      => 1}

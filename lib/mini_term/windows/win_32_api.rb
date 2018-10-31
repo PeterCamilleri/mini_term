@@ -32,16 +32,19 @@ module MiniTerm
     def call(*args)
       args.each_with_index do |x, i|
 
-        if @proto[i] == "S" && !x.is_a?(Fiddle::Pointer)
+        # Note: This code never uses Fiddle::Pointer objects. I think.
+        if @proto[i] == "S" # && !x.is_a?(Fiddle::Pointer)
           args[i], = [x == 0 ? nil : x].pack("p").unpack("l!*")
         end
 
-        if @proto[i] == "I"
-          args[i], = [x].pack("I").unpack("i")
-        end
+        # Note: This code seems to do nothing.
+      #  if @proto[i] == "I"
+      #    args[i], = [x].pack("I").unpack("i")
+      #  end
       end
 
-      @func.call(*args).to_i
+      # Note: Commented out some dead code.
+      @func.call(*args).to_i # || 0
     end
 
   end

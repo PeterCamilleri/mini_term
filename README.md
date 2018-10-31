@@ -8,14 +8,17 @@ MAC OSX systems.
 
 This code started out its life buried deep within the code of the mini readline
 gem where it helped that gem do its job. A while ago it was realized that the
-services provided where invaluable for a much wider range of development.
+services provided where invaluable for a much wider range of development. I was
+increasingly frustrated by my need to "go-around" mini readline to get at some
+of its lower level features. When that happens it is a clear sign that a gem is
+doing too much and has too many responsibilities.
 
-That's why this functionality was split out into the mini term gem contained in
-this code repository. At the same time, the lessons learned from the earlier
-version of the code have been applied to make this code better and also not
-any more incompatible than needed. Since mini readline was the only "user" of
-the old code, moving out in some new directions should not pose a migration
-issue except for me.
+That's why the low level terminal functionality was split out into the mini
+term gem contained in this code repository. At the same time, the lessons
+learned from the earlier version of the code have been applied to make this
+code better and also not any more incompatible than needed. Since mini readline
+was the only "user" of the old code, moving out in some new directions should
+not pose a migration issue except for me.
 
 WIP
 

@@ -22,7 +22,7 @@ not pose a migration issue except for me.
 
 Finally, this gem would not be possible without the excellent insight into the
 gnarly world of win_32_api, dl, and fiddle I gained reading and copying the
-code in the (ConnorAtherton/rb-readline)[https://github.com/ConnorAtherton/rb-readline]
+code in the [ConnorAtherton/rb-readline](https://github.com/ConnorAtherton/rb-readline)
 project and gem. *Thank You!*
 
 WIP

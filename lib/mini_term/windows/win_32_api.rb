@@ -41,7 +41,7 @@ module MiniTerm
         end
       end
 
-      @func.call(*args).to_i || 0
+      @func.call(*args).to_i
     end
 
   end

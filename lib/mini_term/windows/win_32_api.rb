@@ -1,7 +1,7 @@
 # coding: utf-8
 
-# Replacement support for deprecated win_32_api gem.
-# With thanks to rb-readline gem from where this code originates.
+# Replacement support for deprecated win_32_api gem, with thanks to the
+# ConnorAtherton/rb-readline project from where this code originates.
 module MiniTerm
 
   require 'fiddle'

@@ -17,9 +17,9 @@ module MiniTerm
 
     # Taken from Fiddle::Importer
     # Note: They all map to 1. Why is this a thing?
-    CALL_TYPE_TO_ABI = {:stdcall => 1,
-                        :cdecl   => 1,
-                        nil      => 1}
+ #   CALL_TYPE_TO_ABI = {:stdcall => 1,
+  #                      :cdecl   => 1,
+   #                     nil      => 1}
 
     def initialize(dllname, func, import, export = "0", calltype = :stdcall)
       @proto = import.join.tr("VPpNnLlIi", "0SSI").chomp('0').split('')
@@ -27,8 +27,8 @@ module MiniTerm
       handle = DLL[dllname] ||= Fiddle.dlopen(dllname)
 
       @func = Fiddle::Function.new(handle[func],
-                                   TYPEMAP.values_at(*@proto),
-                                   CALL_TYPE_TO_ABI[calltype])
+                                   TYPEMAP.values_at(*@proto), 1)
+                                #   CALL_TYPE_TO_ABI[calltype])
     end
 
     def call(*args)

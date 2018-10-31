@@ -12,12 +12,20 @@ module MiniTerm
   class Win32API
 
     DLL = {}
-    TYPEMAP = {"0" => Fiddle::TYPE_VOID, "S" => Fiddle::TYPE_VOIDP, "I" => Fiddle::TYPE_LONG}
-    CALL_TYPE_TO_ABI = {:stdcall => 1, :cdecl => 1, nil => 1} #Taken from Fiddle::Importer
+    TYPEMAP = {"0" => Fiddle::TYPE_VOID,
+               "S" => Fiddle::TYPE_VOIDP,
+               "I" => Fiddle::TYPE_LONG}
+
+    #Taken from Fiddle::Importer
+    CALL_TYPE_TO_ABI = {:stdcall => 1,
+                        :cdecl   => 1,
+                        nil      => 1}
 
     def initialize(dllname, func, import, export = "0", calltype = :stdcall)
       @proto = import.join.tr("VPpNnLlIi", "0SSI").chomp('0').split('')
+
       handle = DLL[dllname] ||= Fiddle.dlopen(dllname)
+
       @func = Fiddle::Function.new(handle[func],
                                    TYPEMAP.values_at(*@proto),
                                    CALL_TYPE_TO_ABI[calltype])
@@ -25,8 +33,14 @@ module MiniTerm
 
     def call(*args)
       args.each_with_index do |x, i|
-        args[i], = [x == 0 ? nil : x].pack("p").unpack("l!*") if @proto[i] == "S" && !x.is_a?(Fiddle::Pointer)
-        args[i], = [x].pack("I").unpack("i") if @proto[i] == "I"
+
+        if @proto[i] == "S" && !x.is_a?(Fiddle::Pointer)
+          args[i], = [x == 0 ? nil : x].pack("p").unpack("l!*")
+        end
+
+        if @proto[i] == "I"
+          args[i], = [x].pack("I").unpack("i")
+        end
       end
 
       @func.call(*args).to_i || 0

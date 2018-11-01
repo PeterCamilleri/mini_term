@@ -25,6 +25,28 @@ gnarly world of win_32_api, dl, and fiddle I gained reading and copying the
 code in the [ConnorAtherton/rb-readline](https://github.com/ConnorAtherton/rb-readline)
 project and gem. *Thank You!*
 
+So, what hurdles do we expect the mini term gem to overcome? What cross-platform
+issues vex us? After all, it's not as if Ruby ignores the issue of low-level
+console access. It has the io/console and io/wait code libraries. They are
+supposed to give low level access right?
+
+And this is the point where the wheels start falling off.
+
+* The io/console library has truly awful documentation. Many methods lack any
+sort of description or meaningful parameter names. The developer is left to
+reverse engineering the behavior of the code. The programming process borders
+on the tribal. In this regard, io/wait is OK. Too bad it only plays a limited
+role.
+
+* The io/console library does not work correctly under Windows. And before we
+hear a chorus of "Switch to Linux", the anti-windows squad are reminded that
+this is a cross-platform tool, just like Ruby is supposed to be. The issue is
+that raw mode is not so raw under windows. In fact it's so cooked that it more
+resembles a chunk of charcoal! It just plain does not work.
+
+* Under JRuby, the situation is even worse. The io/console facility is
+incapable of manipulating the tty or console at all. A true non-starter.
+
 WIP
 
 ## Installation

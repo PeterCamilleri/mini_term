@@ -8,7 +8,7 @@ class MiniTermTest < Minitest::Test
   #Track mini-test progress.
   include MinitestVisible
 
-  MiniTerm.open unless MiniTerm.term_open?
+  MiniTerm.open(quiet: true) unless MiniTerm.term_open?
 
   def test_that_it_has_a_version_number
     refute_nil ::MiniTerm::VERSION

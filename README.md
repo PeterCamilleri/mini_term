@@ -64,15 +64,21 @@ have been tested at one time or another.
 
 Ruby           | Win32   | Win64   | Cygwin  | Linux   | Mac
 ---------------|---------|---------|---------|---------|---------
-ruby 2.1.6p336 | Yes?    | Yes?    | Yes?    | Yes?    | Yes?
-ruby 2.2.3p173 | Yes?    | Yes?    | Yes?    | Yes?    | Yes?
-ruby 2.3.3p222 | ?       | Yes     | Yes?    | Yes?    | Yes?
-jruby 9.1.5.0  | Planned | Planned | Planned | Planned | Planned
+ruby 2.1.6p336 | Yes?    | Yes??   | Yes??   | Yes??   | Yes??
+ruby 2.2.3p173 | Yes??   | Yes??   | Yes?    | Yes??   | Yes??
+ruby 2.3.3p222 | Yes??   | Yes     | Yes??   | Yes??   | Yes??
+jruby 9.1.5.0  | Yes?    | Planned | Planned | Planned | Planned
+
+This table will be updated as more information becomes available. Check the
+[github  repository](https://github.com/PeterCamilleri/mini_term) for the
+latest info.
 
 Notes:
 * Mini term uses keyword parameters so Ruby 2.0 or later is required. This is
 why older versions of Ruby have been removed from this table.
-* Yes? means that this combination *should* work but needs testing.
+* Yes? means that this combination was once tested with very similar code and
+should be OK, we hope. Testing would be nice.
+* Yes?? means that this combination *should* work but needs testing.
 
 ## Installation
 

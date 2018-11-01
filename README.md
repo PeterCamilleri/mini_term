@@ -42,12 +42,37 @@ role.
 hear a chorus of "Switch to Linux", the anti-windows squad are reminded that
 this is a cross-platform tool, just like Ruby is supposed to be. The issue is
 that raw mode is not so raw under windows. In fact it's so cooked that it more
-resembles a chunk of charcoal! It just plain does not work.
+resembles a chunk of charcoal! It just plain does not work. Fortunately there
+is an answer. Ruby has access to the various APIs though the 'fiddle' gem.
+This gem is used to emulate the deprecated 'win32api' gem.
 
 * Under JRuby, the situation is even worse. The io/console facility is
-incapable of manipulating the tty or console at all. A true non-starter.
+incapable of manipulating the tty or console at all. A true non-starter. Only
+here's where things take a twist for the weird. Under Windows, JRuby *does*
+support the 'win32api' gem. It even works! I'm not at all sure how to support
+JRuby under Linux or Mac OS-X.
 
-WIP
+* Working with Rubinius is perhaps the worst of all. Rubinius *still* does not
+run under Windows. Until such time as I am able to develop under a supported
+platform, or can collaborate with someone who can, this is a non-starter. Don't
+stay tuned, don't hold your breath; This problem is going away any time soon.
+
+#### So! What do we have?
+
+This is a matrix of language versions and environments that have are tested or
+have been tested at one time or another.
+
+Ruby           | Win32   | Win64   | Cygwin  | Linux   | Mac
+---------------|---------|---------|---------|---------|---------
+ruby 2.1.6p336 | Yes?    | Yes?    | Yes?    | Yes?    | Yes?
+ruby 2.2.3p173 | Yes?    | Yes?    | Yes?    | Yes?    | Yes?
+ruby 2.3.3p222 | ?       | Yes     | Yes?    | Yes?    | Yes?
+jruby 9.1.5.0  | Planned | Planned | Planned | Planned | Planned
+
+Notes:
+* Mini term uses keyword parameters so Ruby 2.0 or later is required. This is
+why older versions of Ruby have been removed from this table.
+* Yes? means that this combination *should* work but needs testing.
 
 ## Installation
 

@@ -14,7 +14,6 @@ module MiniTerm
   at_exit do
     if MiniTerm.term_open?
       MiniTerm.close
-      puts "Force MiniTerm.close"
     end
   end
 

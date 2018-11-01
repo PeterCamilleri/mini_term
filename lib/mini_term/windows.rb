@@ -12,17 +12,3 @@ require_relative 'windows/term_info'
 require_relative 'windows/set_posn'
 require_relative 'windows/raw_input'
 require_relative 'windows/output'
-
-# A simple, portable terminal interface object. (Windows Specific Code)
-module MiniTerm
-
-  def self.open
-    @term_open = true
-  end
-
-  def self.close
-    end_raw_input if raw?
-    @term_open = false
-  end
-
-end

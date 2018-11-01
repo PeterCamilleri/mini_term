@@ -3,7 +3,18 @@
 # Common Terminal Info. (Common Code)
 module MiniTerm
 
+  @options   = {}
   @term_open = false
+
+  def self.open(options = {})
+    @term_open = true
+    @options = options
+  end
+
+  def self.close
+    end_raw_input if raw?
+    @term_open = false
+  end
 
   # Is the mini_term open just now?
   def self.term_open?
@@ -14,6 +25,7 @@ module MiniTerm
   at_exit do
     if MiniTerm.term_open?
       MiniTerm.close
+      puts "Force MiniTerm.close" unless @options[:quiet]
     end
   end
 

@@ -3,7 +3,8 @@
 # Link Ruby to the Windows API calls needed by MiniTerm
 module MiniTerm
 
-  # The magic number for the standard out handle.
+  # The magic numbers for the handles.
+  STDIN_ID = -10
   STDOUT_ID = -11
 
   # MiniTerm needs to retrieve standard handles.
@@ -16,6 +17,25 @@ module MiniTerm
   # Well, stdout's handle in particular.
   def self.stdout_handle
     get_handle(STDOUT_ID)
+  end
+
+  # Well, stdin's handle in particular.
+  def self.stdin_handle
+    get_handle(STDIN_ID)
+  end
+
+  # MiniTerm needs to get the current stdin mode
+  get_mode_proc = Win32API.new("kernel32", "GetConsoleMode", ['L', 'P'], 'I')
+
+  define_singleton_method(:get_console_mode) do |buffer|
+    get_mode_proc.call(stdin_handle, buffer)
+  end
+
+  # MiniTerm needs to set the current stdin mode
+  set_mode_proc = Win32API.new("kernel32", "SetConsoleMode", ['L', 'L'], 'I')
+
+  define_singleton_method(:set_console_mode) do |new_mode|
+    set_mode_proc.call(stdin_handle, new_mode)
   end
 
   # MiniTerm needs to retrieve screen info.

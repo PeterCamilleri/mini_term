@@ -8,11 +8,17 @@ module MiniTerm
 
   # Get user input uncooked, with no echo or buffering.
   def self.begin_raw_input
+    @saved_mode = get_term_mode
+
+    # Clear the ENABLE_LINE_INPUT and ENABLE_PROCESSED_INPUT flags.
+    # See https://docs.microsoft.com/en-us/windows/console/setconsolemode
+    set_term_mode(@saved_mode & 0xFFFFFFFC)
     @raw_input = true
   end
 
   # Done with raw mode for now.
   def self.end_raw_input
+    set_term_mode(@saved_mode)
     @raw_input = false
   end
 

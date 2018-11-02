@@ -7,6 +7,21 @@ require_relative '../lib/mini_term'
 
 begin
   MiniTerm.open
+
+  if ARGV[0]
+    start = ARGV[0].hex
+
+    if ARGV[1]
+      finish = ARGV[1].hex
+      snow_flakes = (start..finish).map {|c| c.chr(Encoding::UTF_8)}
+    else
+      snow_flakes = [start.chr(Encoding::UTF_8)]
+    end
+
+  else
+    snow_flakes = ["*"]
+  end
+
   gen = Random.new
 
   y_limit, x_limit = MiniTerm.term_info
@@ -17,7 +32,8 @@ begin
 
     if (x < (x_limit-1)) || (y < (y_limit-1))
       MiniTerm.set_posn(row: y, column: x)
-      MiniTerm.print("*")
+      snow_flakes.shuffle!
+      MiniTerm.print(snow_flakes[0])
     end
 
     x = gen.rand(x_limit)

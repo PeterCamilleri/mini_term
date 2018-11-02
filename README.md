@@ -67,7 +67,7 @@ Ruby           | Win32   | Win64   | Cygwin  | Linux   | Mac
 ruby 2.1.6p336 | Yes?    | Yes??   | Yes??   | Yes??   | Yes??
 ruby 2.2.3p173 | Yes??   | Yes??   | Yes?    | Yes??   | Yes??
 ruby 2.3.3p222 | Yes??   | Yes     | Yes??   | Yes??   | Yes??
-jruby 9.1.5.0  | Yes?    | Planned | Planned | Planned | Planned
+jruby 9.1.5.0  | Yes?    | Yes??   | Maybe?  | Maybe?  | Maybe?
 
 This table will be updated as more information becomes available. Check the
 [github  repository](https://github.com/PeterCamilleri/mini_term) for the

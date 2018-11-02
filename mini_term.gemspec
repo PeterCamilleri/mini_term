@@ -21,7 +21,10 @@ Gem::Specification.new do |spec|
 
   spec.require_paths = ["lib"]
   spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.executables   = spec
+                         .files
+                         .reject { |f| f.downcase == 'exe/readme.md'}
+                         .grep(%r{^exe/}) { |f| File.basename(f) }
 
   spec.required_ruby_version = '>=2.0'
 

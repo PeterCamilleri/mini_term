@@ -2,9 +2,9 @@
 
 The MiniTerm gem is a simple bit of code that seeks to smooth over the bumps
 and pot holes encountered when interacting with the console terminal to create
-console based CLI applications. More than most it seeks to eliminate worries
-about the nasty cross-platform issues encountered between Windows, Linux, and
-MAC OS-X systems.
+console based CLI applications. More than most it also seeks to eliminate
+worries about the nasty cross-platform issues encountered between Windows,
+Linux, and MAC OS-X systems.
 
 This code started out its life buried deep within the code of the mini readline
 gem where it helped that gem do its job. A while ago it was realized that the

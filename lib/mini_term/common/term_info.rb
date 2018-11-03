@@ -43,9 +43,7 @@ module MiniTerm
 private
 
   def self.validate_options
-    bad = @options.keys - VALID_OPTIONS
-
-    return if bad.empty?
+    return if (bad = @options.keys - VALID_OPTIONS).empty?
 
     msg = "MiniTerm.open, Invalid options: #{bad.join(", ")}"
     puts msg unless @options[:quiet]

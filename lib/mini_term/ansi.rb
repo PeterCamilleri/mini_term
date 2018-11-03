@@ -11,6 +11,6 @@ require_relative 'ansi/output'
 module MiniTerm
 
   # What options are supported in this ANSI mode?
-  VALID_OPTIONS = [:quiet, :strict]
+  VALID_OPTIONS = [:quiet, :strict].freeze
 
 end

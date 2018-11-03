@@ -121,6 +121,16 @@ The open method can take some optional arguments:
     pass_ctrl_c: true   # The control c character is passed through.
     pass_ctrl_c: false  # (Default) The control c character is used by the OS
 
+The converse to open is close. It takes no arguments.
+
+```ruby
+MiniTerm.close
+```
+
+Rest assured that if your program should forget to close MiniTerm, the gem will
+close itself automatically when your program exits, and also tell you this
+unless it was opened with the quiet: true option.
+
 WIP
 
 #### Exceptions:

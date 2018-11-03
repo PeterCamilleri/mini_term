@@ -112,10 +112,10 @@ MiniTerm.open
 
 The open method can take some optional arguments:
 
-    pass_ctrl_c: true   # The control+c character is passed through to application.
+    pass_ctrl_c: true   # The control+c character is passed through to the application.
     pass_ctrl_c: false  # (Default) The control+c character is used by the OS.
 
-    pass_ctrl_s: true   # The control+s character is passed through to application.
+    pass_ctrl_s: true   # The control+s character is passed through to the application.
     pass_ctrl_s: false  # (Default) The control+s character is used by the OS.
 
     quiet: true         # Suppress various warning messages.

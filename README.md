@@ -99,15 +99,15 @@ Or install it yourself as:
 
 ## Usage
 
-The mini term can be used in a project requiring low level access by:
+The mini term can be used in a project with:
 
 ```ruby
 require 'mini_term'
 ```
 
-#### Interface Summary
+### Interface Summary
 
-The following summarizes the public interface of the MiniTerm module:
+The following is a brief summary of the public interface of the MiniTerm module:
 
 **Constants**
 
@@ -127,7 +127,7 @@ The following summarizes the public interface of the MiniTerm module:
 Before it can be used, the mini term should be opened. This is done with:
 
 ```ruby
-MiniTerm.open
+MiniTerm.open(options)
 ```
 
 The open method can take some optional arguments:

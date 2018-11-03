@@ -124,7 +124,8 @@ The following is a brief summary of the public interface of the MiniTerm module:
     print(text), clear_screen
 
 
-Before it can be used, the mini term should be opened. This is done with:
+*MiniTerm.open* Before it can be used, the mini term should be opened. This is
+done with:
 
 ```ruby
 MiniTerm.open(options)
@@ -146,17 +147,19 @@ The open method can take some optional arguments:
 
 
 If an unsupported or invalid option is detected, a warning message is displayed
-unless the quiet option is active. The converse to open is close. It takes no
-arguments. Alternatively, if the strict option is enabled, the MiniTermStrict
-exception is raised.
+unless the quiet option is active. Alternatively, if the strict option is
+enabled, the MiniTermStrict exception is raised in that case.
+
+*MiniTerm.close* The converse to open is close. It takes no arguments.
 
 ```ruby
 MiniTerm.close
 ```
 
 Rest assured that if your program should forget to close MiniTerm, the gem will
-close itself automatically when your program exits, and also tell you this
-unless it was opened with the quiet: true option.
+close itself automatically when your program exits. This ensures that the
+terminal will not be left in a unworkable state. It will also tell you that it
+had to "Force MiniTerm.close" unless it was opened with the quiet: true option.
 
 WIP
 

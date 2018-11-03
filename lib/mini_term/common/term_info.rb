@@ -9,7 +9,7 @@ module MiniTerm
   def self.open(options = {})
     @term_open = true
     @options = options
-    validate_options unless @options[:quiet]
+    validate_options
   end
 
   def self.close
@@ -44,10 +44,13 @@ private
 
   def self.validate_options
     bad = @options.keys.reject { |key| VALID_OPTIONS.include?(key) }
+    return if bad.empty?
 
-    unless bad.empty?
-      puts "MiniTerm.open, Invalid options ignored: #{bad.join(", ")}"
-    end
+    msg = "MiniTerm.open, Invalid options ignored: #{bad.join(", ")}"
+
+    fail MiniTermStrict, msg if @options[:strict]
+
+    puts msg unless @options[:quiet]
   end
 
 end

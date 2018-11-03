@@ -6,6 +6,9 @@ class MiniTermError < StandardError; end
 # The exception raised when something is really messed up.
 class MiniTermWTF < MiniTermError; end
 
+# The exception raised due to strictness.
+class MiniTermStrict < MiniTermError; end
+
 # The exception raised when no keyboard mapping is found.
 class MiniTermNoMap < MiniTermError; end
 

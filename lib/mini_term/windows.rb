@@ -15,7 +15,7 @@ require_relative 'windows/output'
 
 module MiniTerm
 
-  # What options are supported in this mode?
-  VALID_OPTIONS = [:quiet, :pass_ctrl_s, :pass_ctrl_c]
+  # What options are supported in this Windows?
+  VALID_OPTIONS = [:quiet, :strict, :pass_ctrl_s, :pass_ctrl_c]
 
 end

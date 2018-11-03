@@ -121,6 +121,9 @@ The open method can take some optional arguments:
     quiet: true         # Suppress various warning messages.
     quiet: false        # (Default) Display warning message.
 
+    strict: true        # Invalid options raise an exception.
+    strict: false       # (Default) Invalid options cause no fuss.
+
 
 If an unsupported or invalid option is detected, a warning message is displayed
 unless the quiet option is active. The converse to open is close. It takes no
@@ -146,6 +149,7 @@ The mini term gem uses the following exception classes:
           MiniTermWTF      # An internal error happened. This shouldn't happen.
           MiniTermNoMap    # No map can be found for the current terminal type.
           MiniTermKME      # A keyboard mapping error was detected.
+          MiniTermStrict   # An exception raised due to strictness.
 
 ## Contributing
 

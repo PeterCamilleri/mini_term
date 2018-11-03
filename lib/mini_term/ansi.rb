@@ -10,7 +10,7 @@ require_relative 'ansi/output'
 
 module MiniTerm
 
-  # What options are supported in this mode?
-  VALID_OPTIONS = [:quiet]
+  # What options are supported in this ANSI mode?
+  VALID_OPTIONS = [:quiet, :strict]
 
 end

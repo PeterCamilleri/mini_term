@@ -98,6 +98,23 @@ Or install it yourself as:
 
 ## Usage
 
+The mini term can be used in a project requiring low level access by:
+
+```ruby
+require 'mini_term'
+```
+
+Before it can be used, the mini term should be opened. This is done with:
+
+```ruby
+MiniTerm.open
+```
+
+The open method can take some optional arguments:
+
+    quiet: true  # Suppress the message on forced close.
+    quiet: false # (Default) On forced close, display a message.
+
 WIP
 
 #### Exceptions:

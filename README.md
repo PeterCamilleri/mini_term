@@ -112,8 +112,8 @@ MiniTerm.open
 
 The open method can take some optional arguments:
 
-    quiet: true         # Suppress the message on forced close.
-    quiet: false        # (Default) On forced close, display a message.
+    quiet: true         # Suppress various warning messages.
+    quiet: false        # (Default) Display warning message.
 
     pass_ctrl_s: true   # The control s character is passed through.
     pass_ctrl_s: false  # (Default) The control s character is used by the OS

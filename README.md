@@ -193,7 +193,9 @@ MiniTerm.begin_raw_input  # Begin raw mode input.
 MiniTerm.end_raw_input    # End raw mode input.
 ```
 
-*MiniTerm.get_raw_char, etc* -
+*MiniTerm.get_raw_char, etc* - These methods deal with the keyboard in a raw
+mode. They do not echo or wait for the user to press enter or any of those
+other cooked mode things. Keyboard data in the raw!
 
 ```ruby
 MiniTerm.get_raw_char     # Wait for a keystrok in raw mode.

@@ -17,11 +17,12 @@ module MiniTerm
 
   # Is there a character waiting?
   def self.has_raw_char?
-    STDIN.ready?
+    raw { STDIN.ready? }
   end
 
   #Get a uncooked character keystroke.
   def self.get_raw_char
+    fail MiniTermNotRaw, "Not in raw mode." unless raw?
     STDIN.getch
   end
 

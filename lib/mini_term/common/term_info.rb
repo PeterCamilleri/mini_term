@@ -26,8 +26,8 @@ module MiniTerm
   # Make sure that mini_term is closed on exit.
   at_exit do
     if MiniTerm.term_open?
-      MiniTerm.close
       puts "Force MiniTerm.close" unless @options[:quiet]
+      MiniTerm.close
     end
   end
 

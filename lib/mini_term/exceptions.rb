@@ -14,3 +14,6 @@ class MiniTermNoMap < MiniTermError; end
 
 # The exception raised when the keyboard mapping is invalid.
 class MiniTermKME < MiniTermError; end
+
+# The exception raised when raw mode is mandatory.
+class MiniTermNotRaw < MiniTermError; end

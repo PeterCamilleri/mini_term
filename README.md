@@ -203,8 +203,8 @@ MiniTerm.has_raw_char?    # Are there any keys waiting?
 MiniTerm.flush            # Flush any keys in the buffer.
 ```
 
-Note that these methods need to be run with raw mode in effect. See the raw
-methods above for more on that. Also, in raw mode, some keys, especially
+Note that the get_raw_char method needs to be run with raw mode in effect. See
+the raw methods above for more on that. Also, in raw mode, some keys, especially
 extended keys may be composed of more than one byte. These methods only return
 one byte at a time.
 
@@ -220,6 +220,7 @@ The mini term gem uses the following exception classes:
           MiniTermWTF      # An internal error happened. This shouldn't happen.
           MiniTermNoMap    # No map can be found for the current terminal type.
           MiniTermKME      # A keyboard mapping error was detected.
+          MiniTermNotRaw   # Raw mode is required for this operation.
           MiniTermStrict   # An exception raised due to strictness.
 
 ## Contributing

@@ -31,11 +31,13 @@ module MiniTerm
 
   # Is there a character waiting?
   def self.has_raw_char?
-    kbhit != 0
+    raw { kbhit != 0 }
   end
 
   # Get a uncooked character keystroke.
   def self.get_raw_char
+    fail MiniTermNotRaw, "Not in raw mode." unless raw?
+
     while (kbhit == 0)
       sleep(WAIT_SLEEP)
     end

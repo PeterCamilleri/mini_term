@@ -120,7 +120,8 @@ The following is a brief summary of the public interface of the MiniTerm module:
     set_posn(row: the_current_row, column:)
     raw {}, raw?, begin_raw_input, end_raw_input
     get_raw_char, has_raw_char? flush
-    get_mapped_char, add_map(type) {}, map_types
+    get_mapped_char
+    add_map(type) {}, map_types
     print(text), clear_screen
 
 
@@ -181,6 +182,17 @@ set_posn(row: the_current_row, column:)
 ```
 Note: If the row parameter is omitted, the row remains on the current row. The
 column parameter is always required.
+
+*MiniTerm.raw, etc* - These methods controll the use of raw console input, one
+of the major features provided by the MiniTerm gem. These methods are:
+
+```ruby
+MiniTerm.raw {|self|  }   # Execute the block with raw mode active.
+MiniTerm.raw?             # Is raw mode active now?
+MiniTerm.begin_raw_input  # Begin raw mode input.
+MiniTerm.end_raw_input    # End raw mode input.
+```
+
 
 WIP
 

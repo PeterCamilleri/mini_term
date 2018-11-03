@@ -55,7 +55,8 @@ JRuby under Linux or Mac OS-X.
 * Working with Rubinius is perhaps the worst of all. Rubinius *still* does not
 run under Windows. Until such time as I am able to develop under a supported
 platform, or can collaborate with someone who can, this is a non-starter. Don't
-stay tuned, don't hold your breath; This problem is going away any time soon.
+stay tuned, don't hold your breath; This problem is *not* going away any time
+soon.
 
 #### So! What do we have?
 

@@ -3,7 +3,7 @@
 # Common Terminal Info. (Common Code)
 module MiniTerm
 
-  @options   = {}
+  @options   = nil
   @term_open = false
 
   def self.open(options = {})
@@ -15,6 +15,7 @@ module MiniTerm
   def self.close
     end_raw_input if raw?
     @term_open = false
+    @options   = nil
   end
 
   # Is the mini_term open just now?

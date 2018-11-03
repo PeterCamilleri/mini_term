@@ -43,14 +43,13 @@ module MiniTerm
 private
 
   def self.validate_options
-    bad = @options.keys.reject { |key| VALID_OPTIONS.include?(key) }
+    bad = @options.keys - VALID_OPTIONS
+
     return if bad.empty?
 
-    msg = "MiniTerm.open, Invalid options ignored: #{bad.join(", ")}"
-
-    fail MiniTermStrict, msg if @options[:strict]
-
+    msg = "MiniTerm.open, Invalid options: #{bad.join(", ")}"
     puts msg unless @options[:quiet]
+    fail MiniTermStrict, msg if @options[:strict]
   end
 
 end

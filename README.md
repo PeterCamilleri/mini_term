@@ -122,12 +122,13 @@ The open method can take some optional arguments:
     quiet: false        # (Default) Display warning message.
 
     strict: true        # Invalid options raise an exception.
-    strict: false       # (Default) Invalid options cause no fuss.
+    strict: false       # (Default) Invalid options cause no such fuss.
 
 
 If an unsupported or invalid option is detected, a warning message is displayed
 unless the quiet option is active. The converse to open is close. It takes no
-arguments.
+arguments. Alternatively, if the strict option is enabled, the MiniTermStrict
+exception is raised.
 
 ```ruby
 MiniTerm.close

@@ -117,7 +117,7 @@ The following is a brief summary of the public interface of the MiniTerm module:
 
     open(options), close, open?
     term_info, width, height, ansi?, windows?, java?
-    set_posn(row: get_cursor_row, column:)
+    set_posn(row: the_current_row, column:)
     raw {}, raw?, begin_raw_input, end_raw_input
     get_raw_char, has_raw_char? flush
     get_mapped_char, add_map(type) {}, map_types
@@ -160,6 +160,27 @@ Rest assured that if your program should forget to close MiniTerm, the gem will
 close itself automatically when your program exits. This ensures that the
 terminal will not be left in a unworkable state. It will also tell you that it
 had to "Force MiniTerm.close" unless it was opened with the quiet: true option.
+
+*MiniTerm.terminfo, etc* - These methods return information about the current
+MiniTerm operating environment.
+
+```ruby
+MiniTerm.terminfo   # Returns the console's number of [rows, columns]
+MiniTerm.width      # Returns the console's number of columns.
+MiniTerm.height     # Returns the console's number of rows.
+MiniTerm.ansi?      # Is ANSI mode active?
+MiniTerm.windows?   # Is Windows mode active?
+MiniTerm.java?      # Is Java active?
+```
+
+*MiniTerm.set_posn* - This method is used to place the cursor anywhere on the
+screen or anywhere in the current line.
+
+```ruby
+set_posn(row: the_current_row, column:)
+```
+Note: If the row parameter is omitted, the row remains on the current row. The
+column parameter is always required.
 
 WIP
 

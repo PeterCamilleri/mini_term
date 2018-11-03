@@ -105,6 +105,25 @@ The mini term can be used in a project requiring low level access by:
 require 'mini_term'
 ```
 
+#### Interface Summary
+
+The following summarizes the public interface of the MiniTerm module:
+
+**Constants**
+
+    VERSION, DESCRIPTION, VALID_OPTIONS, TERM_TYPE, TERM_PLATFORM
+
+**Methods**
+
+    open(options), close, open?
+    term_info, width, height, ansi?, windows?, java?
+    set_posn(row: get_cursor_row, column:)
+    raw {}, raw?, begin_raw_input, end_raw_input
+    get_raw_char, has_raw_char? flush
+    get_mapped_char, add_map(type) {}, map_types
+    print(text), clear_screen
+
+
 Before it can be used, the mini term should be opened. This is done with:
 
 ```ruby

@@ -12,3 +12,10 @@ require_relative 'windows/term_info'
 require_relative 'windows/set_posn'
 require_relative 'windows/raw_input'
 require_relative 'windows/output'
+
+module MiniTerm
+
+  # What options are supported in this mode?
+  VALID_OPTIONS = [:quiet, :pass_ctrl_s, :pass_ctrl_c]
+
+end

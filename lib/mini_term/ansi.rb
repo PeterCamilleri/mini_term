@@ -7,3 +7,10 @@ require_relative 'ansi/term_info'
 require_relative 'ansi/set_posn'
 require_relative 'ansi/raw_input'
 require_relative 'ansi/output'
+
+module MiniTerm
+
+  # What options are supported in this mode?
+  VALID_OPTIONS = [:quiet]
+
+end

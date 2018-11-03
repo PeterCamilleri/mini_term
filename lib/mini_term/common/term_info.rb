@@ -9,6 +9,7 @@ module MiniTerm
   def self.open(options = {})
     @term_open = true
     @options = options
+    validate_options unless @options[:quiet]
   end
 
   def self.close
@@ -37,6 +38,16 @@ module MiniTerm
   # What is the terminal height in rows?
   def self.height
     term_info[0]
+  end
+
+private
+
+  def self.validate_options
+    bad = @options.keys.reject { |key| VALID_OPTIONS.include?(key) }
+
+    unless bad.empty?
+      puts "MiniTerm.open, Invalid options ignored: #{bad.join(", ")}"
+    end
   end
 
 end

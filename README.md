@@ -193,6 +193,18 @@ MiniTerm.begin_raw_input  # Begin raw mode input.
 MiniTerm.end_raw_input    # End raw mode input.
 ```
 
+*MiniTerm.get_raw_char, etc* -
+
+```ruby
+MiniTerm.get_raw_char     # Wait for a keystrok in raw mode.
+MiniTerm.has_raw_char?    # Are there any keys waiting?
+MiniTerm.flush            # Flush any keys in the buffer.
+```
+
+Note that these methods need to be run with raw mode in effect. See the raw
+methods above for more on that. Also, in raw mode, some keys, especially
+extended keys may be composed of more than one byte. These methods only return
+one byte at a time.
 
 WIP
 

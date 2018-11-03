@@ -9,6 +9,24 @@ module MiniTerm
   ENABLE_LINE_INPUT      = 0x00000002
   ENABLE_PROCESSED_INPUT = 0x00000001
 
+  # Is there a character waiting?
+  def self.has_raw_char?
+    raw { kbhit != 0 }
+  end
+
+  # Get a uncooked character keystroke.
+  def self.get_raw_char
+    fail MiniTermNotRaw, "Not in raw mode." unless raw?
+
+    while (kbhit == 0)
+      sleep(WAIT_SLEEP)
+    end
+
+    getch
+  end
+
+private
+
   # Get user input uncooked, with no echo or buffering.
   def self.begin_raw_input
     @saved_mode = get_term_mode
@@ -27,22 +45,6 @@ module MiniTerm
   def self.end_raw_input
     set_term_mode(@saved_mode)
     @raw_input = false
-  end
-
-  # Is there a character waiting?
-  def self.has_raw_char?
-    raw { kbhit != 0 }
-  end
-
-  # Get a uncooked character keystroke.
-  def self.get_raw_char
-    fail MiniTermNotRaw, "Not in raw mode." unless raw?
-
-    while (kbhit == 0)
-      sleep(WAIT_SLEEP)
-    end
-
-    getch
   end
 
 end

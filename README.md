@@ -189,8 +189,6 @@ of the major features provided by the MiniTerm gem. These methods are:
 ```ruby
 MiniTerm.raw {|self|  }   # Execute the block with raw mode active.
 MiniTerm.raw?             # Is raw mode active now?
-MiniTerm.begin_raw_input  # Begin raw mode input.
-MiniTerm.end_raw_input    # End raw mode input.
 ```
 
 *MiniTerm.get_raw_char, etc* - These methods deal with the keyboard in a raw

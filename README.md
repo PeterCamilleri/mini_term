@@ -124,8 +124,7 @@ The following is a brief summary of the public interface of the MiniTerm module:
     set_posn(row: the_current_row, column:)
     raw {}, raw?, begin_raw_input, end_raw_input
     get_raw_char, has_raw_char? flush
-    get_mapped_char
-    add_map(type) {}, map_types
+    get_mapped_char, add_map(type) {}, map_types
     print(text), clear_screen
 
 
@@ -210,9 +209,9 @@ the raw methods above for more on that. Also, in raw mode, some keys, especially
 extended keys may be composed of more than one byte. These methods only return
 one byte at a time.
 
-*MiniTerm.get_mapped_char* - A mapped character is one or more raw characters
-that are mapped to an array containing a symbol and the characters that pathed
-the mapping to that sysmbol. For example:
+*MiniTerm.get_mapped_char, etc* - A mapped character is one or more raw
+characters that are mapped to an array containing a symbol and the characters
+that pathed the mapping to that sysmbol. For example:
 
 ```ruby
 [:go_left, "\e[D"]

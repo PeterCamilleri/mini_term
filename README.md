@@ -111,7 +111,11 @@ The following is a brief summary of the public interface of the MiniTerm module:
 
 **Constants**
 
-    VERSION, DESCRIPTION, VALID_OPTIONS, TERM_TYPE, TERM_PLATFORM
+    VERSION       -- A version string of the form "9.9.9"
+    DESCRIPTION   -- A descriptive string.
+    VALID_OPTIONS -- An array of the supported option symbols.
+    TERM_TYPE     -- Either :windows or :ansi
+    TERM_PLATFORM -- One of :windows, :cygwin, :macosx, :linux, or :unix
 
 **Methods**
 
@@ -206,6 +210,14 @@ the raw methods above for more on that. Also, in raw mode, some keys, especially
 extended keys may be composed of more than one byte. These methods only return
 one byte at a time.
 
+*MiniTerm.get_mapped_char* - A mapped character is one or more raw characters
+that are mapped to an array containing a symbol and the characters that pathed
+the mapping to that sysmbol. For example:
+
+```ruby
+[:go_left, "\e[D"]
+```
+
 WIP
 
 #### Exceptions:
@@ -215,11 +227,11 @@ The mini term gem uses the following exception classes:
     Exception              # From Ruby.
       StandardError        # From Ruby.
         MiniTermError      # The abstract base exception for mini term.
-          MiniTermWTF      # An internal error happened. This shouldn't happen.
-          MiniTermNoMap    # No map can be found for the current terminal type.
           MiniTermKME      # A keyboard mapping error was detected.
+          MiniTermNoMap    # No map can be found for the current terminal type.
           MiniTermNotRaw   # Raw mode is required for this operation.
           MiniTermStrict   # An exception raised due to strictness.
+          MiniTermWTF      # An internal error happened. This shouldn't happen.
 
 ## Contributing
 

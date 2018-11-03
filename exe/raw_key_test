@@ -6,7 +6,7 @@
 require_relative '../lib/mini_term'
 
 puts "Testing Raw Keyboard input. Press Q to quit."
-MiniTerm.open
+MiniTerm.open(pass_ctrl_s: true, pass_ctrl_c: true)
 key = nil
 
 MiniTerm.raw do |i|

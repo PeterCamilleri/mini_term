@@ -121,7 +121,9 @@ The open method can take some optional arguments:
     pass_ctrl_c: true   # The control c character is passed through.
     pass_ctrl_c: false  # (Default) The control c character is used by the OS
 
-The converse to open is close. It takes no arguments.
+If an unsupported or invalid option is detected, a warning message is displayed
+unless the quiet option is active. The converse to open is close. It takes no
+arguments.
 
 ```ruby
 MiniTerm.close

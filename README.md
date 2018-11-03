@@ -124,8 +124,8 @@ The following is a brief summary of the public interface of the MiniTerm module:
     print(text), clear_screen
 
 
-*MiniTerm.open* Before it can be used, the mini term should be opened. This is
-done with:
+*MiniTerm.open* - Before it can be used, the mini term should be opened. This
+is done with:
 
 ```ruby
 MiniTerm.open(options)
@@ -150,7 +150,7 @@ If an unsupported or invalid option is detected, a warning message is displayed
 unless the quiet option is active. Alternatively, if the strict option is
 enabled, the MiniTermStrict exception is raised in that case.
 
-*MiniTerm.close* The converse to open is close. It takes no arguments.
+*MiniTerm.close* - The converse to open is close. It takes no arguments.
 
 ```ruby
 MiniTerm.close

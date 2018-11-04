@@ -32,8 +32,8 @@ old ASCII looks like:
 
     16 mysh>mini_term_code_points 20 7F
     Code points in the range: 20...7F
-       0                                       !"#$%&' ()\*+,-./ 01234567 89:;<=>?
-      40  @ABCDEFG HIJKLMNO PQRSTUVW XYZ[\]^\_ `abcdefg hijklmno pqrstuvw xyz{|}~
+       0                                       !"#$%&' ()*+,-./ 01234567 89:;<=>?
+      40  @ABCDEFG HIJKLMNO PQRSTUVW XYZ[\]^_ `abcdefg hijklmno pqrstuvw xyz{|}~
 
 While the other demo programs make direct use of the mini term gem, this one
 does not. It simply allows the programmer to explore the extent of Unicode

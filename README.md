@@ -217,7 +217,39 @@ that pathed the mapping to that sysmbol. For example:
 [:go_left, "\e[D"]
 ```
 
-WIP
+The conversion process from a stream of raw bytes to commands is done with a
+map. The method MiniTerm.add_map(type) {} takes one argument, the type, and a
+block. The type is currently one of the two terminal types: :windows or :ansi.
+The block also takes one argument, the newly created map. The code can then
+define entries in the map as follows:
+
+```ruby
+MiniTerm.add_map(:ansi) do |map|
+  map["\e[D"] = :go_left
+  # etc etc etc
+end
+```
+
+Now, the index for each entry represents a sort of path to the command. This
+path must not be ambiguous. For example, the following will generate an error:
+
+```ruby
+MiniTerm.add_map(:ansi) do |map|
+  map["\e"]   = :cancel
+  map["\e[D"] = :go_left
+  # etc etc etc
+end
+```
+
+To understand this, imagine that this map were allowed. The user presses the
+left arrow key. This generates the sequence "\e[D". The "\e" is received first
+and mapped to a :cancel command by the first rule. Then the "[D" characters are
+received and most likely inserted as these are printable characters. That is
+not what is wanted. This map is ambiguous so MiniTerm signals a MiniTermKME
+error when the map is created.
+
+The method MiniTerm.map_types list the types for installed key maps. In most
+cases this will be [:ansi, :windows].
 
 #### Exceptions:
 

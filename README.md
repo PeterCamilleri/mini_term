@@ -245,12 +245,13 @@ To understand this, imagine that this map were allowed. The user presses the
 left arrow key. This generates the sequence "\e[D". The "\e" is received first
 and mapped to a :cancel command by the first rule. Then the "[D" characters are
 received and most likely inserted as these are printable characters. That is
-not what is wanted. This map is ambiguous so MiniTerm signals a MiniTermKME
-error when the map is created.
+not what is wanted because the left arrow key was mapped to the wrong actions.
+This map is ambiguous mapping error is why MiniTerm signals a MiniTermKME error
+when the map is created.
 
-The method MiniTerm.map_types list the types for installed key maps. In most
-cases this will be [:ansi, :windows]. A map should be defined for each of the
-two term types, unless the application is only intended for one type.
+The method MiniTerm.map_types list the types for key maps that have been added.
+In most cases this will be [:ansi, :windows]. A map should be defined for each
+of the two term types, unless the application is only intended for one type.
 
 #### Exceptions:
 

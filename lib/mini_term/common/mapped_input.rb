@@ -10,7 +10,7 @@ module MiniTerm
 
   # What terminal types are mapped?
   def self.map_types
-    @map.keys
+    @maps.keys
   end
 
   # Add a terminal mapping.

@@ -199,7 +199,7 @@ mode. They do not echo or wait for the user to press enter or any of those
 other cooked mode things. Keyboard data in the raw!
 
 ```ruby
-MiniTerm.get_raw_char     # Wait for a keystrok in raw mode.
+MiniTerm.get_raw_char     # Wait for a keystroke in raw mode.
 MiniTerm.has_raw_char?    # Are there any keys waiting?
 MiniTerm.flush            # Flush any keys in the buffer.
 ```
@@ -249,7 +249,8 @@ not what is wanted. This map is ambiguous so MiniTerm signals a MiniTermKME
 error when the map is created.
 
 The method MiniTerm.map_types list the types for installed key maps. In most
-cases this will be [:ansi, :windows].
+cases this will be [:ansi, :windows]. A map should be defined for each of the
+two term types, unless the application is only intended for one type.
 
 #### Exceptions:
 

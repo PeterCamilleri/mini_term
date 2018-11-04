@@ -65,22 +65,6 @@ custom map in action.
 As mentioned before, this map doesn't do much but it does illustrate the basics
 of creating a custom map.
 
-## mini_term_blizzard
-
-The other programs bundled with mini_term are serious practical utilities. They
-all serve a purpose. The mini_term_blizzard is none of those things! When run,
-it fills the console screen with _snow_.
-
-Yup!
-
-Snow!
-
-If run with no arguments, it uses the asterisk ("*") for the snowflakes. It can
-also take hex arguments that are the code point, or range of code points to be
-used. The following looks really nice on my test machine:
-
-    mini_term_blizzard 2740 2749
-
 ## mini_term_code_points
 
 The purpose of the mini_term_code_points is to explore the glyphs associated
@@ -118,3 +102,19 @@ only for clarity and where not entered.
     Testing Raw Keyboard input. Press Q to quit.
     [31][32][33][34][35][36][37][38][39][30][00][3B][00][3C][00][3D][00][3E][00][3F]
     [00][40][00][41][00][42][00][43][00][44][E0][85][E0][86][71][51]
+
+## mini_term_blizzard
+
+The other programs bundled with mini_term are serious practical utilities. They
+all serve a purpose. The mini_term_blizzard is none of those things! When run,
+it fills the console screen with _snow_.
+
+Yup!
+
+Snow!
+
+If run with no arguments, it uses the asterisk ("*") for the snowflakes. It can
+also take hex arguments that are the code point, or range of code points to be
+used. The following looks really nice on my test machine:
+
+    mini_term_blizzard 2740 2749

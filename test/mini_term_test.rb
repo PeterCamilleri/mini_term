@@ -38,7 +38,8 @@ class MiniTermTest < Minitest::Test
     assert_equal("\x0A", MiniTerm::LINE_FEED)
     assert_equal("\x0D", MiniTerm::CARRIAGE_RETURN)
     assert_equal("\e", MiniTerm::ESCAPE)
-    assert_equal(0xE0.chr, MiniTerm::PREFIX)
+    assert_equal(0x00.chr, MiniTerm::PREFIX_00)
+    assert_equal(0xE0.chr, MiniTerm::PREFIX_E0)
   end
 
   def test_that_it_senses_the_term_size

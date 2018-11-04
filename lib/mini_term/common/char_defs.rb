@@ -8,6 +8,8 @@ module MiniTerm
   CARRIAGE_RETURN = "\x0D"
   ESCAPE = "\x1B"
 
-  PREFIX = 0xE0.chr
+  # These are mostly used in Windows maps.
+  PREFIX_00 = 0x00.chr
+  PREFIX_E0 = 0xE0.chr
 
 end

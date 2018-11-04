@@ -9,135 +9,154 @@ exit_key = MiniTerm.windows? ? "ctrl-z" : "alt-z"
 
 puts "Testing Mapped Keyboard input. Press #{exit_key} to quit."
 MiniTerm.open
+no_map = false
 
-# Check to see if no map is to be loaded.
-no_map = ARGV[0] == '--no-map'
+# Process any arguments.
+ARGV.each do |arg|
+  if arg == '--no-map'
+    no_map = true
+  else
+    path = File.absolute_path(arg)
+    puts "Requiring #{path}"
+    require path
+  end
+end
 
 # Load the Windows mapping.
-MiniTerm.add_map(:windows) do |map|
+unless MiniTerm.map_types.include?(:windows)
+  MiniTerm.add_map(:windows) do |map|
 
-  unless no_map
+    unless no_map
 
-    xeo = MiniTerm::PREFIX # Make local copy for brevity.
+      # Make local copies of the prefixes for brevity.
+      x00 = MiniTerm::PREFIX_00
+      xe0 = MiniTerm::PREFIX_E0
 
-    map[" ".."~"] = :insert_text
+      map[" ".."~"] = :insert_text
 
-    #Left Arrows
-    map["\x00K"] = :go_left
-    map[xeo+"K"] = :go_left
+      #Left Arrows
+      map[x00+"K"] = :go_left
+      map[xe0+"K"] = :go_left
 
-    map["\x00s"] = :word_left
-    map[xeo+"s"] = :word_left
+      map[x00+"s"] = :word_left
+      map[xe0+"s"] = :word_left
 
-    #Right Arrows
-    map["\x00M"] = :go_right
-    map[xeo+"M"] = :go_right
+      #Right Arrows
+      map[x00+"M"] = :go_right
+      map[xe0+"M"] = :go_right
 
-    map["\x00t"] = :word_right
-    map[xeo+"t"] = :word_right
+      map[x00+"t"] = :word_right
+      map[xe0+"t"] = :word_right
 
-    #Up Arrows
-    map["\x00H"] = :previous_history
-    map[xeo+"H"] = :previous_history
+      #Up Arrows
+      map[x00+"H"] = :previous_history
+      map[xe0+"H"] = :previous_history
 
-    #Down Arrows
-    map["\x00P"] = :next_history
-    map[xeo+"P"] = :next_history
+      #Down Arrows
+      map[x00+"P"] = :next_history
+      map[xe0+"P"] = :next_history
 
-    #The Home keys
-    map["\x00G"] = :go_home
-    map[xeo+"G"] = :go_home
+      #The Home keys
+      map[x00+"G"] = :go_home
+      map[xe0+"G"] = :go_home
 
-    #The End keys
-    map["\x00O"] = :go_end
-    map[xeo+"O"] = :go_end
+      #The End keys
+      map[x00+"O"] = :go_end
+      map[xe0+"O"] = :go_end
 
-    #The Backspace key
-    map["\x08"]  = :delete_left
+      #The Backspace key
+      map["\x08"]  = :delete_left
 
-    #The Delete keys
-    map["\x7F"]  = :delete_right
-    map["\x00S"] = :delete_right
-    map[xeo+"S"] = :delete_right
+      #The Delete keys
+      map["\x7F"]  = :delete_right
+      map[x00+"S"] = :delete_right
+      map[xe0+"S"] = :delete_right
 
-    #Auto-completion.
-    map["\t"]    = :auto_complete
+      #Auto-completion.
+      map["\t"]    = :auto_complete
 
-    #The Enter key
-    map["\x0D"]  = :enter
+      #The Enter key
+      map["\x0D"]  = :enter
 
-    #The Escape key
-    map["\x1B"]  = :cancel
+      #The Escape key
+      map["\e"]    = :cancel
+    end
+
+    #End of Input
+    map["\x1A"]  = :end_of_input
   end
-
-  #End of Input
-  map["\x1A"]  = :end_of_input
 end
 
 # Load the ANSI mapping.
-MiniTerm.add_map(:ansi) do |map|
+unless MiniTerm.map_types.include?(:ansi)
+  MiniTerm.add_map(:ansi) do |map|
 
-  unless no_map
-    map[" ".."~"] = :insert_text
+    unless no_map
+      map[" ".."~"] = :insert_text
 
-    #Left Arrows
-    map["\e[D"]  = :go_left
-    map["\eOD"]  = :go_left
-    map["\x02"]  = :go_left
+      #Left Arrows
+      map["\e[D"]  = :go_left
+      map["\eOD"]  = :go_left
+      map["\x02"]  = :go_left
 
-    map["\e[1;5D"] = :word_left
-    map["\eb"]     = :word_left
+      map["\e[1;5D"] = :word_left
+      map["\eb"]     = :word_left
 
-    #Right Arrows
-    map["\e[C"]  = :go_right
-    map["\eOC"]  = :go_right
-    map["\x06"]  = :go_right
+      #Right Arrows
+      map["\e[C"]  = :go_right
+      map["\eOC"]  = :go_right
+      map["\x06"]  = :go_right
 
-    map["\e[1;5C"] = :word_right
-    map["\ef"]     = :word_right
+      map["\e[1;5C"] = :word_right
+      map["\ef"]     = :word_right
 
-    #Up Arrows
-    map["\e[A"]  = :previous_history
-    map["\eOA"]  = :previous_history
-    map["\x12"]  = :previous_history
+      #Up Arrows
+      map["\e[A"]  = :previous_history
+      map["\eOA"]  = :previous_history
+      map["\x12"]  = :previous_history
 
-    #Down Arrows
-    map["\e[B"]  = :next_history
-    map["\eOB"]  = :next_history
+      #Down Arrows
+      map["\e[B"]  = :next_history
+      map["\eOB"]  = :next_history
 
-    #The Home keys
-    map["\e[H"]  = :go_home
-    map["\eOH"]  = :go_home
-    map["\x01"]  = :go_home
+      #The Home keys
+      map["\e[H"]  = :go_home
+      map["\eOH"]  = :go_home
+      map["\x01"]  = :go_home
 
-    #The End keys
-    map["\e[F"]  = :go_end
-    map["\eOF"]  = :go_end
-    map["\x05"]  = :go_end
+      #The End keys
+      map["\e[F"]  = :go_end
+      map["\eOF"]  = :go_end
+      map["\x05"]  = :go_end
 
-    #The Backspace key
-    map["\x7F"]  = :delete_left
-    map["\x08"]  = :delete_left
-    map["\x15"]  = :delete_all_left
+      #The Backspace key
+      map["\x7F"]  = :delete_left
+      map["\x08"]  = :delete_left
+      map["\x15"]  = :delete_all_left
 
-    #The Delete keys
-    map["\x1F"]  = :delete_right
-    map["\e[3~"] = :delete_right
-    map["\x0B"]  = :delete_all_right
+      #The Delete keys
+      map["\x1F"]  = :delete_right
+      map["\e[3~"] = :delete_right
+      map["\x0B"]  = :delete_all_right
 
-    #Auto-completion.
-    map["\t"]    = :auto_complete
+      #Auto-completion.
+      map["\t"]    = :auto_complete
 
-    #The Enter key
-    map["\x0D"]  = :enter
+      #The Enter key
+      map["\x0D"]  = :enter
 
-    #The Cancel key
-    map["\f"]    = :cancel
+      #The Cancel key
+      map["\f"]    = :cancel
+    end
+
+    #End of Input
+    map["\ez"] = :end_of_input
   end
-
-  #End of Input
-  map["\ez"] = :end_of_input
 end
+
+puts "Current maps = #{MiniTerm.map_types.inspect}"
+puts "Current term type = #{MiniTerm::TERM_TYPE.inspect}"
+puts
 
 loop do
   mapped = MiniTerm.get_mapped_char

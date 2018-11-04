@@ -24,8 +24,8 @@ custom code to directly handle user input.
 
 A sample run of this program, under Windows is shown below. In this example the
 keys entered were "1234567890 *F1 F2 F3 F4 F5 F6 F7 F8 F9 F10 F11 F12* qQ"
-where F1 through F12 represent the keyboard's "F" keys and spaces are added only
-for clarity and where not entered.
+where *F1* through *F12* represent the keyboard's "F" keys and spaces are added
+only for clarity and where not entered.
 
     77 mysh>raw_key_test
     Testing Raw Keyboard input. Press Q to quit.

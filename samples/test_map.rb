@@ -1,6 +1,8 @@
 # A sample test map for use with the mapped_key_test program.
 # These demonstrate overriding the mappings built into the program.
 
+$mini_term_exit_info = {}
+
 MiniTerm.add_map(:windows) do |map|
 
   # Make local copies of the prefixes for brevity.
@@ -13,7 +15,7 @@ MiniTerm.add_map(:windows) do |map|
   #End of Input
   map["\x1A"]  = :end_of_input
 
-  $exit_info[:windows] = [:end_of_input, "Ctrl+z"]
+  $mini_term_exit_info[:windows] = [:end_of_input, "Ctrl+z"]
 end
 
 MiniTerm.add_map(:ansi) do |map|
@@ -24,5 +26,5 @@ MiniTerm.add_map(:ansi) do |map|
   #End of Input
   map["\ez"] = :end_of_input
 
-  $exit_info[:ansi] = [:end_of_input, "Alt+z"]
+  $mini_term_exit_info[:ansi] = [:end_of_input, "Alt+z"]
 end

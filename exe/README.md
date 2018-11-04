@@ -6,7 +6,64 @@ testing of programs using mini_term. Then again, some are just for fun.
 
 ## mapped_key_test
 
-WIP
+The mapped_key_test program is designed demonstrate the mapped input system.
+The program comes with sample mappings for the supported systems and supports
+the use of alternate maps as well.
+
+If no arguments are given, the default maps are used.
+The following shows a sample run with an input of "1234567890 Enter UpArrow
+LeftArrow RightArrow DownArrow Tab Ctrl+z" with the default map under Windows.
+
+    42 mysh>mapped_key_test
+
+    Testing Mapped Keyboard input. Press Ctrl+z to quit.
+    Current maps = [:windows, :ansi]
+    Current term type = :windows
+
+    action = :insert_text, text = ["1"]
+    action = :insert_text, text = ["2"]
+    action = :insert_text, text = ["3"]
+    action = :insert_text, text = ["4"]
+    action = :insert_text, text = ["5"]
+    action = :insert_text, text = ["6"]
+    action = :insert_text, text = ["7"]
+    action = :insert_text, text = ["8"]
+    action = :insert_text, text = ["9"]
+    action = :insert_text, text = ["0"]
+    action = :enter, text = ["\r"]
+    action = :previous_history, text = ["\xE0", "H"]
+    action = :go_left, text = ["\xE0", "K"]
+    action = :go_right, text = ["\xE0", "M"]
+    action = :next_history, text = ["\xE0", "P"]
+    action = :auto_complete, text = ["\t"]
+    action = :end_of_input, text = ["\u001A"]
+
+Alternatively, the path(s) to a Ruby file(s) containing maps can be provided.
+One such file is provided at samples/test_map.rb. this trivial map shows a
+custom map in action.
+
+    43 mysh>mapped_key_test samples\test_map.rb
+    Requiring 'C:/Sites/mini_term/samples/test_map.rb'
+
+    Testing Mapped Keyboard input. Press Ctrl+z to quit.
+    Current maps = [:windows, :ansi]
+    Current term type = :windows
+
+    action = :unmapped, text = ["1"]
+    action = :unmapped, text = ["2"]
+    action = :unmapped, text = ["3"]
+    action = :unmapped, text = ["4"]
+    action = :unmapped, text = ["5"]
+    action = :unmapped, text = ["6"]
+    action = :unmapped, text = ["7"]
+    action = :unmapped, text = ["8"]
+    action = :unmapped, text = ["9"]
+    action = :unmapped, text = ["0"]
+    action = :unmapped, text = ["\t"]
+    action = :end_of_input, text = ["\u001A"]
+
+As mentioned before, this map doesn't do much but it does illustrate the basics
+of creating a custom map.
 
 ## mini_term_blizzard
 

@@ -7,7 +7,7 @@ require_relative '../lib/mini_term'
 
 MiniTerm.open
 no_map = false
-$exit_info = {}
+$mini_term_exit_info = {}
 
 # Process any arguments.
 ARGV.each do |arg|
@@ -22,7 +22,7 @@ end
 
 puts
 
-# Load the Windows mapping.
+# Load the sample Windows mapping.
 unless MiniTerm.map_types.include?(:windows)
   MiniTerm.add_map(:windows) do |map|
 
@@ -85,11 +85,11 @@ unless MiniTerm.map_types.include?(:windows)
     #End of Input
     map["\x1A"]  = :end_of_input
 
-    $exit_info[:windows] = [:end_of_input, "Ctrl+z"]
+    $mini_term_exit_info[:windows] = [:end_of_input, "Ctrl+z"]
   end
 end
 
-# Load the ANSI mapping.
+# Load the sample ANSI mapping.
 unless MiniTerm.map_types.include?(:ansi)
   MiniTerm.add_map(:ansi) do |map|
 
@@ -154,11 +154,11 @@ unless MiniTerm.map_types.include?(:ansi)
     #End of Input
     map["\ez"] = :end_of_input
 
-    $exit_info[:ansi] = [:end_of_input, "Alt+z"]
+    $mini_term_exit_info[:ansi] = [:end_of_input, "Alt+z"]
   end
 end
 
-exit_action, exit_desc = $exit_info[MiniTerm::TERM_TYPE]
+exit_action, exit_desc = $mini_term_exit_info[MiniTerm::TERM_TYPE]
 puts "Testing Mapped Keyboard input. Press #{exit_desc} to quit."
 
 puts "Current maps = #{MiniTerm.map_types.inspect}"

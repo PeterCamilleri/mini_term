@@ -74,6 +74,71 @@ MiniTerm.add_map(:windows) do |map|
   map["\x1A"]  = :end_of_input
 end
 
+# Load the ANSI mapping.
+MiniTerm.add_map(:ansi) do |map|
+
+  unless no_map
+    map[" ".."~"] = :insert_text
+
+    #Left Arrows
+    map["\e[D"]  = :go_left
+    map["\eOD"]  = :go_left
+    map["\x02"]  = :go_left
+
+    map["\e[1;5D"] = :word_left
+    map["\eb"]     = :word_left
+
+    #Right Arrows
+    map["\e[C"]  = :go_right
+    map["\eOC"]  = :go_right
+    map["\x06"]  = :go_right
+
+    map["\e[1;5C"] = :word_right
+    map["\ef"]     = :word_right
+
+    #Up Arrows
+    map["\e[A"]  = :previous_history
+    map["\eOA"]  = :previous_history
+    map["\x12"]  = :previous_history
+
+    #Down Arrows
+    map["\e[B"]  = :next_history
+    map["\eOB"]  = :next_history
+
+    #The Home keys
+    map["\e[H"]  = :go_home
+    map["\eOH"]  = :go_home
+    map["\x01"]  = :go_home
+
+    #The End keys
+    map["\e[F"]  = :go_end
+    map["\eOF"]  = :go_end
+    map["\x05"]  = :go_end
+
+    #The Backspace key
+    map["\x7F"]  = :delete_left
+    map["\x08"]  = :delete_left
+    map["\x15"]  = :delete_all_left
+
+    #The Delete keys
+    map["\x1F"]  = :delete_right
+    map["\e[3~"] = :delete_right
+    map["\x0B"]  = :delete_all_right
+
+    #Auto-completion.
+    map["\t"]    = :auto_complete
+
+    #The Enter key
+    map["\x0D"]  = :enter
+
+    #The Cancel key
+    map["\f"]    = :cancel
+  end
+
+  #End of Input
+  map["\ez"] = :end_of_input
+end
+
 loop do
   mapped = MiniTerm.get_mapped_char
   puts "action = #{mapped[0].inspect}, text = #{mapped[1].chars.inspect}"

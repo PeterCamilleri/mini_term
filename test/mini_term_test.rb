@@ -102,6 +102,13 @@ class MiniTermTest < Minitest::Test
       MiniTerm.get_mapped_char { t_i.next }
     end
 
+    assert_raises do
+      MiniTerm.add_map(:foo) do |map|
+        map["A".."Z"]  = :letter
+        map["Q"]       = :quit
+      end
+    end
+
   end
 
   def test_putting_our_mark_on_the_screen

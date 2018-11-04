@@ -5,11 +5,9 @@
 
 require_relative '../lib/mini_term'
 
-exit_key = MiniTerm.windows? ? "ctrl-z" : "alt-z"
-
-puts "Testing Mapped Keyboard input. Press #{exit_key} to quit."
 MiniTerm.open
 no_map = false
+$exit_info = {}
 
 # Process any arguments.
 ARGV.each do |arg|
@@ -17,10 +15,12 @@ ARGV.each do |arg|
     no_map = true
   else
     path = File.absolute_path(arg)
-    puts "Requiring #{path}"
+    puts "Requiring '#{path}'"
     require path
   end
 end
+
+puts
 
 # Load the Windows mapping.
 unless MiniTerm.map_types.include?(:windows)
@@ -84,6 +84,8 @@ unless MiniTerm.map_types.include?(:windows)
 
     #End of Input
     map["\x1A"]  = :end_of_input
+
+    $exit_info[:windows] = [:end_of_input, "Ctrl+z"]
   end
 end
 
@@ -151,8 +153,13 @@ unless MiniTerm.map_types.include?(:ansi)
 
     #End of Input
     map["\ez"] = :end_of_input
+
+    $exit_info[:ansi] = [:end_of_input, "Alt+z"]
   end
 end
+
+exit_action, exit_desc = $exit_info[MiniTerm::TERM_TYPE]
+puts "Testing Mapped Keyboard input. Press #{exit_desc} to quit."
 
 puts "Current maps = #{MiniTerm.map_types.inspect}"
 puts "Current term type = #{MiniTerm::TERM_TYPE.inspect}"
@@ -161,7 +168,7 @@ puts
 loop do
   mapped = MiniTerm.get_mapped_char
   puts "action = #{mapped[0].inspect}, text = #{mapped[1].chars.inspect}"
-  break if mapped[0] == :end_of_input
+  break if mapped[0] == exit_action
 end
 
 MiniTerm.close

@@ -9,7 +9,7 @@ first_code ||= 32
 last_code  ||= 65536
 last_code = 65536 if last_code > 65536
 
-puts "Code points in the range: #{first_code}...#{last_code}"
+puts "Code points in the range: #{"%X"%first_code}...#{"%X"%last_code}"
 
 # Compute the 64 element lines to be displayed.
 first_line = first_code/64

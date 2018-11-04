@@ -26,7 +26,22 @@ used. The following looks really nice on my test machine:
 
 ## mini_term_code_points
 
-WIP
+The purpose of the mini_term_code_points is to explore the glyphs associated
+with the code points of characters sent to the console. Let's see what plain
+old ASCII looks like:
+
+    16 mysh>mini_term_code_points 20 7F
+    Code points in the range: 20...7F
+       0                                       !"#$%&' ()\*+,-./ 01234567 89:;<=>?
+      40  @ABCDEFG HIJKLMNO PQRSTUVW XYZ[\]^\_ `abcdefg hijklmno pqrstuvw xyz{|}~
+
+While the other demo programs make direct use of the mini term gem, this one
+does not. It simply allows the programmer to explore the extent of Unicode
+support in the test environment.
+
+Note: By default, the mini_term_code_points displays the first 65536 code
+points which can take a while and will probably scroll away unless you pipe
+it into more (or less) or have a deep scroll back buffer.
 
 ## raw_key_test
 

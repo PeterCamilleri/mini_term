@@ -10,7 +10,19 @@ WIP
 
 ## mini_term_blizzard
 
-WIP
+The other programs bundled with mini_term are serious practical utilities. They
+all serve a purpose. The mini_term_blizzard is none of those things! When run,
+it fills the console screen with _snow_.
+
+Yup
+
+Snow!
+
+If run with no arguments, it uses the asterisk ("*") for the snowflakes. It can
+also take hex arguments that are the code point, or range of code points to be
+used. The following looks really nice on my test machine:
+
+    mini_term_blizzard 2740 2749
 
 ## mini_term_code_points
 

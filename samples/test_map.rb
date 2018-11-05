@@ -24,7 +24,7 @@ MiniTerm.add_map(:ansi) do |map|
   map["\f"]    = :cancel
 
   #End of Input
-  map["\ez"] = :end_of_input
+  map["\ez"]   = :end_of_input
 
   $mini_term_exit_info[:ansi] = [:end_of_input, "Alt+z"]
 end

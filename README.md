@@ -194,6 +194,9 @@ MiniTerm.raw {|self|  }   # Execute the block with raw mode active.
 MiniTerm.raw?             # Is raw mode active now?
 ```
 
+Note that raw blocks may be nested to any depth without undesirable
+side-effects. Infinite recursion is, however, strongly discouraged.
+
 *MiniTerm.get_raw_char, etc* - These methods deal with the keyboard in a raw
 mode. They do not echo or wait for the user to press enter or any of those
 other cooked mode things. Keyboard data in the raw!

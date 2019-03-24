@@ -8,7 +8,7 @@ module MiniTerm
 
     #Set up the keystroke mapper.
     def initialize
-      @map = Hash.new {|_h, key| [:unmapped, key]}
+      @map = Hash.new {|_h, key| [:unmapped, key + MiniTerm.flush]}
       yield self
     end
 

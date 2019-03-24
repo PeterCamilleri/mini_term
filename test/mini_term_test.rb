@@ -116,6 +116,6 @@ class MiniTermTest < Minitest::Test
   end
 
   def test_flush
-    assert_equal(MiniTerm, MiniTerm.flush)
+    assert_equal("", MiniTerm.flush)
   end
 end

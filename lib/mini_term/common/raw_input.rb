@@ -3,6 +3,10 @@
 # Get input from the user in raw mode. (Common Code)
 module MiniTerm
 
+  # Control values for flush.
+  FLUSH_SLEEP = 0.01
+  FLUSH_COUNT = 3
+
   # Is input raw or cooked?
   @raw_input = false
 
@@ -21,13 +25,17 @@ module MiniTerm
 
   # Flush the keyboard buffer.
   def self.flush
+    result = ""
+
     raw do |input|
-      while input.has_raw_char?
-        input.get_raw_char
+      FLUSH_COUNT.times do
+        sleep(FLUSH_SLEEP)
+        break unless input.has_raw_char?
+        result << input.get_raw_char
       end
     end
 
-    self
+    result
   end
 
 end

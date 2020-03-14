@@ -228,10 +228,17 @@ define entries in the map as follows:
 
 ```ruby
 MiniTerm.add_map(:ansi) do |map|
-  map["\e[D"] = :go_left
+  map["\e[D"] = :go_left        # First
+  map[" ".."~"] = :insert_text  # Second
   # etc etc etc
 end
 ```
+
+The \[\]= operator of the map object can accept two sorts of indexes.
+* A string in which case an entry for keys defined by that string is created.
+This is the first example line above.
+* A range of characters, in which case an entry is created for each string
+in the specified range. This is the second example line above.
 
 Now, the index for each entry represents a sort of path to the command. This
 path must not be ambiguous. For example, the following will generate an error:

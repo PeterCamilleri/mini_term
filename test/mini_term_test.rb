@@ -1,12 +1,8 @@
 require_relative '../lib/mini_term'
 gem              'minitest'
 require          'minitest/autorun'
-require          'minitest_visible'
 
 class MiniTermTest < Minitest::Test
-
-  #Track mini-test progress.
-  include MinitestVisible
 
   MiniTerm.open(quiet: true, strict: true) unless MiniTerm.term_open?
 
